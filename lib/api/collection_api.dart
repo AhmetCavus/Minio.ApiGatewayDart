@@ -1,325 +1,437 @@
-part of swagger.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.0
 
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: lines_longer_than_80_chars
+
+part of openapi.api;
 
 
 class CollectionApi {
-  final ApiClient apiClient;
-
   CollectionApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
+  final ApiClient apiClient;
+
   /// Gets a collection by name
   ///
   /// Gets a collection by name
-  Future collectionSchemaGet(String schema) async {
-    Object postBody = null;
-
-    // verify required params are set
-    if(schema == null) {
-     throw new ApiException(400, "Missing required param: schema");
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] schema (required):
+  ///   The schema of the collection
+  Future<Response> collectionSchemaGetWithHttpInfo(String schema) async {
+    // Verify required params are set.
+    if (schema == null) {
+     throw ApiException(HttpStatus.badRequest, 'Missing required param: schema');
     }
 
-    // create path and map variables
-    String path = "/collection/{schema}".replaceAll("{format}","json").replaceAll("{" + "schema" + "}", schema.toString());
+    final path = r'/collection/{schema}'
+      .replaceAll('{' + 'schema' + '}', schema.toString());
 
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
-    
-    List<String> contentTypes = [];
+    Object postBody;
 
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-    List<String> authNames = ["bearerAuth"];
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
 
-    if(contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
-      if(hasFields)
-        postBody = mp;
-    }
-    else {
-          }
+    final contentTypes = <String>[];
+    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final authNames = <String>['bearerAuth'];
 
-    var response = await apiClient.invokeAPI(path,
-                                             'GET',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
 
-    if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, response.body);
-    } else if(response.body != null) {
-      return
-          ;
-    } else {
-      return ;
+    return await apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      nullableContentType,
+      authNames,
+    );
+  }
+
+  /// Gets a collection by name
+  ///
+  /// Gets a collection by name
+  ///
+  /// Parameters:
+  ///
+  /// * [String] schema (required):
+  ///   The schema of the collection
+  Future<void> collectionSchemaGet(String schema) async {
+    final response = await collectionSchemaGetWithHttpInfo(schema);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
+
   /// Deletes the item in the collection that matches the id
   ///
   /// Deletes the item in the collection that matches the id
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] schema (required):
+  ///   The schema of the collection
+  ///
+  /// * [String] id (required):
+  ///   The id of the item in the collection
+  Future<Response> collectionSchemaIdDeleteWithHttpInfo(String schema, String id) async {
+    // Verify required params are set.
+    if (schema == null) {
+     throw ApiException(HttpStatus.badRequest, 'Missing required param: schema');
+    }
+    if (id == null) {
+     throw ApiException(HttpStatus.badRequest, 'Missing required param: id');
+    }
+
+    final path = r'/collection/{schema}/{id}'
+      .replaceAll('{' + 'schema' + '}', schema.toString())
+      .replaceAll('{' + 'id' + '}', id.toString());
+
+    Object postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    final contentTypes = <String>[];
+    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final authNames = <String>[];
+
+
+    return await apiClient.invokeAPI(
+      path,
+      'DELETE',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      nullableContentType,
+      authNames,
+    );
+  }
+
+  /// Deletes the item in the collection that matches the id
+  ///
+  /// Deletes the item in the collection that matches the id
+  ///
+  /// Parameters:
+  ///
+  /// * [String] schema (required):
+  ///   The schema of the collection
+  ///
+  /// * [String] id (required):
+  ///   The id of the item in the collection
   Future<List<Object>> collectionSchemaIdDelete(String schema, String id) async {
-    Object postBody = null;
-
-    // verify required params are set
-    if(schema == null) {
-     throw new ApiException(400, "Missing required param: schema");
+    final response = await collectionSchemaIdDeleteWithHttpInfo(schema, id);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
-    if(id == null) {
-     throw new ApiException(400, "Missing required param: id");
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<Object>') as List)
+        .cast<Object>()
+        .toList(growable: false);
     }
-
-    // create path and map variables
-    String path = "/collection/{schema}/{id}".replaceAll("{format}","json").replaceAll("{" + "schema" + "}", schema.toString()).replaceAll("{" + "id" + "}", id.toString());
-
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
-    
-    List<String> contentTypes = [];
-
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
-
-    if(contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
-      if(hasFields)
-        postBody = mp;
-    }
-    else {
-          }
-
-    var response = await apiClient.invokeAPI(path,
-                                             'DELETE',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
-
-    if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, response.body);
-    } else if(response.body != null) {
-      return
-        (apiClient.deserialize(response.body, 'List<Object>') as List).map((item) => item as Object).toList();
-    } else {
-      return null;
-    }
+    return Future<List<Object>>.value(null);
   }
+
   /// Replaces the item in the collection with the one in the request body
   ///
   /// Replaces the item in the collection with the one in the request body
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] schema (required):
+  ///   The schema of the collection
+  ///
+  /// * [String] id (required):
+  ///   The id of the item in the collection
+  ///
+  /// * [Object] body:
+  Future<Response> collectionSchemaIdPutWithHttpInfo(String schema, String id, { Object body }) async {
+    // Verify required params are set.
+    if (schema == null) {
+     throw ApiException(HttpStatus.badRequest, 'Missing required param: schema');
+    }
+    if (id == null) {
+     throw ApiException(HttpStatus.badRequest, 'Missing required param: id');
+    }
+
+    final path = r'/collection/{schema}/{id}'
+      .replaceAll('{' + 'schema' + '}', schema.toString())
+      .replaceAll('{' + 'id' + '}', id.toString());
+
+    Object postBody = body;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    final contentTypes = <String>['application/json'];
+    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final authNames = <String>[];
+
+
+    return await apiClient.invokeAPI(
+      path,
+      'PUT',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      nullableContentType,
+      authNames,
+    );
+  }
+
+  /// Replaces the item in the collection with the one in the request body
+  ///
+  /// Replaces the item in the collection with the one in the request body
+  ///
+  /// Parameters:
+  ///
+  /// * [String] schema (required):
+  ///   The schema of the collection
+  ///
+  /// * [String] id (required):
+  ///   The id of the item in the collection
+  ///
+  /// * [Object] body:
   Future<List<Object>> collectionSchemaIdPut(String schema, String id, { Object body }) async {
-    Object postBody = body;
-
-    // verify required params are set
-    if(schema == null) {
-     throw new ApiException(400, "Missing required param: schema");
+    final response = await collectionSchemaIdPutWithHttpInfo(schema, id,  body: body );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
-    if(id == null) {
-     throw new ApiException(400, "Missing required param: id");
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<Object>') as List)
+        .cast<Object>()
+        .toList(growable: false);
     }
-
-    // create path and map variables
-    String path = "/collection/{schema}/{id}".replaceAll("{format}","json").replaceAll("{" + "schema" + "}", schema.toString()).replaceAll("{" + "id" + "}", id.toString());
-
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
-    
-    List<String> contentTypes = ["application/json"];
-
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
-
-    if(contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
-      if(hasFields)
-        postBody = mp;
-    }
-    else {
-          }
-
-    var response = await apiClient.invokeAPI(path,
-                                             'PUT',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
-
-    if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, response.body);
-    } else if(response.body != null) {
-      return
-        (apiClient.deserialize(response.body, 'List<Object>') as List).map((item) => item as Object).toList();
-    } else {
-      return null;
-    }
+    return Future<List<Object>>.value(null);
   }
+
   /// Adds a new item to the collection
   ///
   /// Adds a new item to the collection
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] schema (required):
+  ///   The schema of the collection
+  ///
+  /// * [Object] body:
+  Future<Response> collectionSchemaPostWithHttpInfo(String schema, { Object body }) async {
+    // Verify required params are set.
+    if (schema == null) {
+     throw ApiException(HttpStatus.badRequest, 'Missing required param: schema');
+    }
+
+    final path = r'/collection/{schema}'
+      .replaceAll('{' + 'schema' + '}', schema.toString());
+
+    Object postBody = body;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    final contentTypes = <String>['application/json'];
+    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final authNames = <String>['bearerAuth'];
+
+
+    return await apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      nullableContentType,
+      authNames,
+    );
+  }
+
+  /// Adds a new item to the collection
+  ///
+  /// Adds a new item to the collection
+  ///
+  /// Parameters:
+  ///
+  /// * [String] schema (required):
+  ///   The schema of the collection
+  ///
+  /// * [Object] body:
   Future<List<Object>> collectionSchemaPost(String schema, { Object body }) async {
-    Object postBody = body;
-
-    // verify required params are set
-    if(schema == null) {
-     throw new ApiException(400, "Missing required param: schema");
+    final response = await collectionSchemaPostWithHttpInfo(schema,  body: body );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
-
-    // create path and map variables
-    String path = "/collection/{schema}".replaceAll("{format}","json").replaceAll("{" + "schema" + "}", schema.toString());
-
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
-    
-    List<String> contentTypes = ["application/json"];
-
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-    List<String> authNames = ["bearerAuth"];
-
-    if(contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
-      if(hasFields)
-        postBody = mp;
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<Object>') as List)
+        .cast<Object>()
+        .toList(growable: false);
     }
-    else {
-          }
-
-    var response = await apiClient.invokeAPI(path,
-                                             'POST',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
-
-    if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, response.body);
-    } else if(response.body != null) {
-      return
-        (apiClient.deserialize(response.body, 'List<Object>') as List).map((item) => item as Object).toList();
-    } else {
-      return null;
-    }
+    return Future<List<Object>>.value(null);
   }
+
   /// Replaces the whole collection with the given one
   ///
   /// Replaces the whole collection with the given one
-  Future<List<Object>> collectionSchemaPut(String schema, { List<Object> body }) async {
-    Object postBody = body;
-
-    // verify required params are set
-    if(schema == null) {
-     throw new ApiException(400, "Missing required param: schema");
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] schema (required):
+  ///   The schema of the collection
+  ///
+  /// * [List<Object>] requestBody:
+  Future<Response> collectionSchemaPutWithHttpInfo(String schema, { List<Object> requestBody }) async {
+    // Verify required params are set.
+    if (schema == null) {
+     throw ApiException(HttpStatus.badRequest, 'Missing required param: schema');
     }
 
-    // create path and map variables
-    String path = "/collection/{schema}".replaceAll("{format}","json").replaceAll("{" + "schema" + "}", schema.toString());
+    final path = r'/collection/{schema}'
+      .replaceAll('{' + 'schema' + '}', schema.toString());
 
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
-    
-    List<String> contentTypes = ["application/json"];
+    Object postBody = requestBody;
 
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
 
-    if(contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
-      if(hasFields)
-        postBody = mp;
-    }
-    else {
-          }
+    final contentTypes = <String>['application/json'];
+    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final authNames = <String>[];
 
-    var response = await apiClient.invokeAPI(path,
-                                             'PUT',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
 
-    if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, response.body);
-    } else if(response.body != null) {
-      return
-        (apiClient.deserialize(response.body, 'List<Object>') as List).map((item) => item as Object).toList();
-    } else {
-      return null;
-    }
+    return await apiClient.invokeAPI(
+      path,
+      'PUT',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      nullableContentType,
+      authNames,
+    );
   }
+
+  /// Replaces the whole collection with the given one
+  ///
+  /// Replaces the whole collection with the given one
+  ///
+  /// Parameters:
+  ///
+  /// * [String] schema (required):
+  ///   The schema of the collection
+  ///
+  /// * [List<Object>] requestBody:
+  Future<List<Object>> collectionSchemaPut(String schema, { List<Object> requestBody }) async {
+    final response = await collectionSchemaPutWithHttpInfo(schema,  requestBody: requestBody );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<Object>') as List)
+        .cast<Object>()
+        .toList(growable: false);
+    }
+    return Future<List<Object>>.value(null);
+  }
+
   /// Gets a collection by name with resolving the relations
   ///
   /// Gets a collection by name with resolving the relations
-  Future collectionSchemaRelationsGet(String schema, List<Object> relations) async {
-    Object postBody = null;
-
-    // verify required params are set
-    if(schema == null) {
-     throw new ApiException(400, "Missing required param: schema");
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] schema (required):
+  ///   The schema of the collection
+  ///
+  /// * [List<Object>] relations (required):
+  ///   The depending models of the schema
+  Future<Response> collectionSchemaRelationsGetWithHttpInfo(String schema, List<Object> relations) async {
+    // Verify required params are set.
+    if (schema == null) {
+     throw ApiException(HttpStatus.badRequest, 'Missing required param: schema');
     }
-    if(relations == null) {
-     throw new ApiException(400, "Missing required param: relations");
+    if (relations == null) {
+     throw ApiException(HttpStatus.badRequest, 'Missing required param: relations');
     }
 
-    // create path and map variables
-    String path = "/collection/{schema}/{relations}".replaceAll("{format}","json").replaceAll("{" + "schema" + "}", schema.toString()).replaceAll("{" + "relations" + "}", relations.toString());
+    final path = r'/collection/{schema}/{relations}'
+      .replaceAll('{' + 'schema' + '}', schema.toString())
+      .replaceAll('{' + 'relations' + '}', relations.toString());
 
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
-    
-    List<String> contentTypes = [];
+    Object postBody;
 
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-    List<String> authNames = ["bearerAuth"];
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
 
-    if(contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
-      if(hasFields)
-        postBody = mp;
-    }
-    else {
-          }
+    final contentTypes = <String>[];
+    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final authNames = <String>['bearerAuth'];
 
-    var response = await apiClient.invokeAPI(path,
-                                             'GET',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
 
-    if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, response.body);
-    } else if(response.body != null) {
-      return
-          ;
-    } else {
-      return ;
+    return await apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      nullableContentType,
+      authNames,
+    );
+  }
+
+  /// Gets a collection by name with resolving the relations
+  ///
+  /// Gets a collection by name with resolving the relations
+  ///
+  /// Parameters:
+  ///
+  /// * [String] schema (required):
+  ///   The schema of the collection
+  ///
+  /// * [List<Object>] relations (required):
+  ///   The depending models of the schema
+  Future<void> collectionSchemaRelationsGet(String schema, List<Object> relations) async {
+    final response = await collectionSchemaRelationsGetWithHttpInfo(schema, relations);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
 }
