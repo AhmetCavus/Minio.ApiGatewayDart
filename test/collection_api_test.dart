@@ -29,7 +29,7 @@ void main() {
     //
     // Deletes the item in the collection that matches the id
     //
-    //Future<List<Map<String, Object>>> collectionSchemaIdDelete(String schema, String id) async
+    //Future<List<String>> collectionSchemaIdDelete(String schema, String id) async
     test('test collectionSchemaIdDelete', () async {
       // TODO
     });
@@ -38,7 +38,7 @@ void main() {
     //
     // Replaces the item in the collection with the one in the request body
     //
-    //Future<List<Map<String, Object>>> collectionSchemaIdPut(String schema, String id, { Map<String, Object> requestBody }) async
+    //Future<List<String>> collectionSchemaIdPut(String schema, String id, { String body }) async
     test('test collectionSchemaIdPut', () async {
       // TODO
     });
@@ -65,7 +65,7 @@ void main() {
     //
     // Gets a collection by name with resolving the relations
     //
-    //Future<List<Map<String, Object>>> collectionSchemaRelationsGet(String schema, List<String> relations) async
+    //Future<List<String>> collectionSchemaRelationsGet(String schema, List<String> relations) async
     test('test collectionSchemaRelationsGet', () async {
       // TODO
     });

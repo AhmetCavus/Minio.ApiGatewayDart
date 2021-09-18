@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **collectionSchemaIdDelete**
-> List<Map<String, Object>> collectionSchemaIdDelete(schema, id)
+> List<String> collectionSchemaIdDelete(schema, id)
 
 Deletes the item in the collection that matches the id
 
@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<Map<String, Object>>**](Map.md)
+**List<String>**
 
 ### Authorization
 
@@ -112,7 +112,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **collectionSchemaIdPut**
-> List<Map<String, Object>> collectionSchemaIdPut(schema, id, requestBody)
+> List<String> collectionSchemaIdPut(schema, id, body)
 
 Replaces the item in the collection with the one in the request body
 
@@ -125,10 +125,10 @@ import 'package:openapi/api.dart';
 final api_instance = CollectionApi();
 final schema = schema_example; // String | The schema of the collection
 final id = id_example; // String | The id of the item in the collection
-final requestBody = Map<String, Object>(); // Map<String, Object> | 
+final body = String(); // String | 
 
 try { 
-    final result = api_instance.collectionSchemaIdPut(schema, id, requestBody);
+    final result = api_instance.collectionSchemaIdPut(schema, id, body);
     print(result);
 } catch (e) {
     print('Exception when calling CollectionApi->collectionSchemaIdPut: $e\n');
@@ -141,11 +141,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **schema** | **String**| The schema of the collection | 
  **id** | **String**| The id of the item in the collection | 
- **requestBody** | [**Map<String, Object>**](Object.md)|  | [optional] 
+ **body** | **String**|  | [optional] 
 
 ### Return type
 
-[**List<Map<String, Object>>**](Map.md)
+**List<String>**
 
 ### Authorization
 
@@ -255,7 +255,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **collectionSchemaRelationsGet**
-> List<Map<String, Object>> collectionSchemaRelationsGet(schema, relations)
+> List<String> collectionSchemaRelationsGet(schema, relations)
 
 Gets a collection by name with resolving the relations
 
@@ -292,7 +292,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<Map<String, Object>>**](Map.md)
+**List<String>**
 
 ### Authorization
 
