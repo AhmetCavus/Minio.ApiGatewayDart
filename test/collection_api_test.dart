@@ -20,7 +20,7 @@ void main() {
     //
     // Gets a collection by name
     //
-    //Future<List<Map<String, Object>>> collectionSchemaGet(String schema) async
+    //Future<List<String>> collectionSchemaGet(String schema) async
     test('test collectionSchemaGet', () async {
       // TODO
     });
@@ -38,7 +38,7 @@ void main() {
     //
     // Replaces the item in the collection with the one in the request body
     //
-    //Future<List<String>> collectionSchemaIdPut(String schema, String id, { String body }) async
+    //Future<List<String>> collectionSchemaIdPut(String schema, String id, { Object body }) async
     test('test collectionSchemaIdPut', () async {
       // TODO
     });
@@ -47,7 +47,7 @@ void main() {
     //
     // Adds a new item to the collection
     //
-    //Future<List<Object>> collectionSchemaPost(String schema, { Object body }) async
+    //Future<List<String>> collectionSchemaPost(String schema, { Object body }) async
     test('test collectionSchemaPost', () async {
       // TODO
     });
@@ -56,7 +56,7 @@ void main() {
     //
     // Replaces the whole collection with the given one
     //
-    //Future<List<Object>> collectionSchemaPut(String schema, { List<Object> requestBody }) async
+    //Future<List<String>> collectionSchemaPut(String schema, { List<Object> requestBody }) async
     test('test collectionSchemaPut', () async {
       // TODO
     });

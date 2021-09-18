@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 
 # **collectionSchemaGet**
-> List<Map<String, Object>> collectionSchemaGet(schema)
+> List<String> collectionSchemaGet(schema)
 
 Gets a collection by name
 
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<Map<String, Object>>**](Map.md)
+**List<String>**
 
 ### Authorization
 
@@ -125,7 +125,7 @@ import 'package:openapi/api.dart';
 final api_instance = CollectionApi();
 final schema = schema_example; // String | The schema of the collection
 final id = id_example; // String | The id of the item in the collection
-final body = String(); // String | 
+final body = Object(); // Object | 
 
 try { 
     final result = api_instance.collectionSchemaIdPut(schema, id, body);
@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **schema** | **String**| The schema of the collection | 
  **id** | **String**| The id of the item in the collection | 
- **body** | **String**|  | [optional] 
+ **body** | **Object**|  | [optional] 
 
 ### Return type
 
@@ -159,7 +159,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **collectionSchemaPost**
-> List<Object> collectionSchemaPost(schema, body)
+> List<String> collectionSchemaPost(schema, body)
 
 Adds a new item to the collection
 
@@ -196,7 +196,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<Object>**](Object.md)
+**List<String>**
 
 ### Authorization
 
@@ -210,7 +210,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **collectionSchemaPut**
-> List<Object> collectionSchemaPut(schema, requestBody)
+> List<String> collectionSchemaPut(schema, requestBody)
 
 Replaces the whole collection with the given one
 
@@ -241,7 +241,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<Object>**](Object.md)
+**List<String>**
 
 ### Authorization
 
