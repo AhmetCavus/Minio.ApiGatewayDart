@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 
 # **collectionSchemaGet**
-> collectionSchemaGet(schema)
+> List<Map<String, Object>> collectionSchemaGet(schema)
 
 Gets a collection by name
 
@@ -38,7 +38,8 @@ final api_instance = CollectionApi();
 final schema = schema_example; // String | The schema of the collection
 
 try { 
-    api_instance.collectionSchemaGet(schema);
+    final result = api_instance.collectionSchemaGet(schema);
+    print(result);
 } catch (e) {
     print('Exception when calling CollectionApi->collectionSchemaGet: $e\n');
 }
@@ -52,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**List<Map<String, Object>>**](Map.md)
 
 ### Authorization
 
@@ -61,12 +62,12 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **collectionSchemaIdDelete**
-> List<Object> collectionSchemaIdDelete(schema, id)
+> List<Map<String, Object>> collectionSchemaIdDelete(schema, id)
 
 Deletes the item in the collection that matches the id
 
@@ -97,7 +98,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<Object>**](Object.md)
+[**List<Map<String, Object>>**](Map.md)
 
 ### Authorization
 
@@ -111,7 +112,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **collectionSchemaIdPut**
-> List<Object> collectionSchemaIdPut(schema, id, body)
+> List<Map<String, Object>> collectionSchemaIdPut(schema, id, requestBody)
 
 Replaces the item in the collection with the one in the request body
 
@@ -124,10 +125,10 @@ import 'package:openapi/api.dart';
 final api_instance = CollectionApi();
 final schema = schema_example; // String | The schema of the collection
 final id = id_example; // String | The id of the item in the collection
-final body = Object(); // Object | 
+final requestBody = Map<String, Object>(); // Map<String, Object> | 
 
 try { 
-    final result = api_instance.collectionSchemaIdPut(schema, id, body);
+    final result = api_instance.collectionSchemaIdPut(schema, id, requestBody);
     print(result);
 } catch (e) {
     print('Exception when calling CollectionApi->collectionSchemaIdPut: $e\n');
@@ -140,11 +141,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **schema** | **String**| The schema of the collection | 
  **id** | **String**| The id of the item in the collection | 
- **body** | **Object**|  | [optional] 
+ **requestBody** | [**Map<String, Object>**](Object.md)|  | [optional] 
 
 ### Return type
 
-[**List<Object>**](Object.md)
+[**List<Map<String, Object>>**](Map.md)
 
 ### Authorization
 
@@ -254,7 +255,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **collectionSchemaRelationsGet**
-> collectionSchemaRelationsGet(schema, relations)
+> List<Map<String, Object>> collectionSchemaRelationsGet(schema, relations)
 
 Gets a collection by name with resolving the relations
 
@@ -272,10 +273,11 @@ import 'package:openapi/api.dart';
 
 final api_instance = CollectionApi();
 final schema = schema_example; // String | The schema of the collection
-final relations = []; // List<Object> | The depending models of the schema
+final relations = []; // List<String> | The depending models of the schema
 
 try { 
-    api_instance.collectionSchemaRelationsGet(schema, relations);
+    final result = api_instance.collectionSchemaRelationsGet(schema, relations);
+    print(result);
 } catch (e) {
     print('Exception when calling CollectionApi->collectionSchemaRelationsGet: $e\n');
 }
@@ -286,11 +288,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **schema** | **String**| The schema of the collection | 
- **relations** | [**List<Object>**](Object.md)| The depending models of the schema | [default to const []]
+ **relations** | [**List<String>**](String.md)| The depending models of the schema | [default to const []]
 
 ### Return type
 
-void (empty response body)
+[**List<Map<String, Object>>**](Map.md)
 
 ### Authorization
 
@@ -299,7 +301,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -65,11 +65,20 @@ class CollectionApi {
   ///
   /// * [String] schema (required):
   ///   The schema of the collection
-  Future<void> collectionSchemaGet(String schema) async {
+  Future<List<Map<String, Object>>> collectionSchemaGet(String schema) async {
     final response = await collectionSchemaGetWithHttpInfo(schema);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<Map<String, Object>>') as List)
+        .cast<Map>()
+        .toList(growable: false);
+    }
+    return Future<List<Map<String, Object>>>.value(null);
   }
 
   /// Deletes the item in the collection that matches the id
@@ -132,7 +141,7 @@ class CollectionApi {
   ///
   /// * [String] id (required):
   ///   The id of the item in the collection
-  Future<List<Object>> collectionSchemaIdDelete(String schema, String id) async {
+  Future<List<Map<String, Object>>> collectionSchemaIdDelete(String schema, String id) async {
     final response = await collectionSchemaIdDeleteWithHttpInfo(schema, id);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -141,11 +150,11 @@ class CollectionApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<Object>') as List)
-        .cast<Object>()
+      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<Map<String, Object>>') as List)
+        .cast<Map>()
         .toList(growable: false);
     }
-    return Future<List<Object>>.value(null);
+    return Future<List<Map<String, Object>>>.value(null);
   }
 
   /// Replaces the item in the collection with the one in the request body
@@ -162,8 +171,8 @@ class CollectionApi {
   /// * [String] id (required):
   ///   The id of the item in the collection
   ///
-  /// * [Object] body:
-  Future<Response> collectionSchemaIdPutWithHttpInfo(String schema, String id, { Object body }) async {
+  /// * [Map<String, Object>] requestBody:
+  Future<Response> collectionSchemaIdPutWithHttpInfo(String schema, String id, { Map<String, Object> requestBody }) async {
     // Verify required params are set.
     if (schema == null) {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: schema');
@@ -176,7 +185,7 @@ class CollectionApi {
       .replaceAll('{' + 'schema' + '}', schema.toString())
       .replaceAll('{' + 'id' + '}', id.toString());
 
-    Object postBody = body;
+    Object postBody = requestBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -211,9 +220,9 @@ class CollectionApi {
   /// * [String] id (required):
   ///   The id of the item in the collection
   ///
-  /// * [Object] body:
-  Future<List<Object>> collectionSchemaIdPut(String schema, String id, { Object body }) async {
-    final response = await collectionSchemaIdPutWithHttpInfo(schema, id,  body: body );
+  /// * [Map<String, Object>] requestBody:
+  Future<List<Map<String, Object>>> collectionSchemaIdPut(String schema, String id, { Map<String, Object> requestBody }) async {
+    final response = await collectionSchemaIdPutWithHttpInfo(schema, id,  requestBody: requestBody );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -221,11 +230,11 @@ class CollectionApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<Object>') as List)
-        .cast<Object>()
+      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<Map<String, Object>>') as List)
+        .cast<Map>()
         .toList(growable: false);
     }
-    return Future<List<Object>>.value(null);
+    return Future<List<Map<String, Object>>>.value(null);
   }
 
   /// Adds a new item to the collection
@@ -379,9 +388,9 @@ class CollectionApi {
   /// * [String] schema (required):
   ///   The schema of the collection
   ///
-  /// * [List<Object>] relations (required):
+  /// * [List<String>] relations (required):
   ///   The depending models of the schema
-  Future<Response> collectionSchemaRelationsGetWithHttpInfo(String schema, List<Object> relations) async {
+  Future<Response> collectionSchemaRelationsGetWithHttpInfo(String schema, List<String> relations) async {
     // Verify required params are set.
     if (schema == null) {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: schema');
@@ -426,12 +435,21 @@ class CollectionApi {
   /// * [String] schema (required):
   ///   The schema of the collection
   ///
-  /// * [List<Object>] relations (required):
+  /// * [List<String>] relations (required):
   ///   The depending models of the schema
-  Future<void> collectionSchemaRelationsGet(String schema, List<Object> relations) async {
+  Future<List<Map<String, Object>>> collectionSchemaRelationsGet(String schema, List<String> relations) async {
     final response = await collectionSchemaRelationsGetWithHttpInfo(schema, relations);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<Map<String, Object>>') as List)
+        .cast<Map>()
+        .toList(growable: false);
+    }
+    return Future<List<Map<String, Object>>>.value(null);
   }
 }
