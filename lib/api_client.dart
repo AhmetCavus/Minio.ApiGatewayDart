@@ -200,6 +200,8 @@ class ApiClient {
           return AuthRegisterResponse.fromJson(value);
         case 'AuthResponse':
           return AuthResponse.fromJson(value);
+        case 'CollectionItem':
+          return CollectionItem.fromJson(value);
         default:
           Match match;
           if (value is List && (match = _regList.firstMatch(targetType)) != null) {

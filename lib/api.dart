@@ -34,6 +34,7 @@ part 'model/auth_body.dart';
 part 'model/auth_register_body.dart';
 part 'model/auth_register_response.dart';
 part 'model/auth_response.dart';
+part 'model/collection_item.dart';
 
 
 const _delimiters = {'csv': ',', 'ssv': ' ', 'tsv': '\t', 'pipes': '|'};

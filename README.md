@@ -75,6 +75,7 @@ Class | Method | HTTP request | Description
  - [AuthRegisterBody](doc\/AuthRegisterBody.md)
  - [AuthRegisterResponse](doc\/AuthRegisterResponse.md)
  - [AuthResponse](doc\/AuthResponse.md)
+ - [CollectionItem](doc\/CollectionItem.md)
 
 
 ## Documentation For Authorization

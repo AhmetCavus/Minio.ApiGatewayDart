@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 
 # **collectionSchemaGet**
-> List<Object> collectionSchemaGet(schema)
+> List<Object> collectionSchemaGet(schema, isJson, createdAt)
 
 Gets a collection by name
 
@@ -36,9 +36,11 @@ import 'package:openapi/api.dart';
 
 final api_instance = CollectionApi();
 final schema = schema_example; // String | The schema of the collection
+final isJson = true; // bool | Indicates whether to response with the collection schema
+final createdAt = createdAt_example; // String | Specifies the starting date which filters the responses
 
 try { 
-    final result = api_instance.collectionSchemaGet(schema);
+    final result = api_instance.collectionSchemaGet(schema, isJson, createdAt);
     print(result);
 } catch (e) {
     print('Exception when calling CollectionApi->collectionSchemaGet: $e\n');
@@ -50,6 +52,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **schema** | **String**| The schema of the collection | 
+ **isJson** | **bool**| Indicates whether to response with the collection schema | [optional] 
+ **createdAt** | **String**| Specifies the starting date which filters the responses | [optional] 
 
 ### Return type
 
@@ -159,7 +163,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **collectionSchemaPost**
-> List<Object> collectionSchemaPost(schema, body)
+> List<Object> collectionSchemaPost(schema, isJson, createdAt, body)
 
 Adds a new item to the collection
 
@@ -177,10 +181,12 @@ import 'package:openapi/api.dart';
 
 final api_instance = CollectionApi();
 final schema = schema_example; // String | The schema of the collection
+final isJson = true; // bool | Indicates whether to response with the collection schema
+final createdAt = createdAt_example; // String | Specifies the starting date which filters the responses
 final body = Object(); // Object | 
 
 try { 
-    final result = api_instance.collectionSchemaPost(schema, body);
+    final result = api_instance.collectionSchemaPost(schema, isJson, createdAt, body);
     print(result);
 } catch (e) {
     print('Exception when calling CollectionApi->collectionSchemaPost: $e\n');
@@ -192,6 +198,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **schema** | **String**| The schema of the collection | 
+ **isJson** | **bool**| Indicates whether to response with the collection schema | [optional] 
+ **createdAt** | **String**| Specifies the starting date which filters the responses | [optional] 
  **body** | **Object**|  | [optional] 
 
 ### Return type
@@ -210,7 +218,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **collectionSchemaPut**
-> List<Object> collectionSchemaPut(schema, requestBody)
+> List<Object> collectionSchemaPut(schema, isJson, createdAt, requestBody)
 
 Replaces the whole collection with the given one
 
@@ -222,10 +230,12 @@ import 'package:openapi/api.dart';
 
 final api_instance = CollectionApi();
 final schema = schema_example; // String | The schema of the collection
+final isJson = true; // bool | Indicates whether to response with the collection schema
+final createdAt = createdAt_example; // String | Specifies the starting date which filters the responses
 final requestBody = [List<Object>()]; // List<Object> | 
 
 try { 
-    final result = api_instance.collectionSchemaPut(schema, requestBody);
+    final result = api_instance.collectionSchemaPut(schema, isJson, createdAt, requestBody);
     print(result);
 } catch (e) {
     print('Exception when calling CollectionApi->collectionSchemaPut: $e\n');
@@ -237,6 +247,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **schema** | **String**| The schema of the collection | 
+ **isJson** | **bool**| Indicates whether to response with the collection schema | [optional] 
+ **createdAt** | **String**| Specifies the starting date which filters the responses | [optional] 
  **requestBody** | [**List<Object>**](Object.md)|  | [optional] 
 
 ### Return type
@@ -255,7 +267,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **collectionSchemaRelationsGet**
-> List<Object> collectionSchemaRelationsGet(schema, relations)
+> List<Object> collectionSchemaRelationsGet(schema, relations, isJson, createdAt)
 
 Gets a collection by name with resolving the relations
 
@@ -274,9 +286,11 @@ import 'package:openapi/api.dart';
 final api_instance = CollectionApi();
 final schema = schema_example; // String | The schema of the collection
 final relations = []; // List<Object> | The depending models of the schema
+final isJson = true; // bool | Indicates whether to response with the collection schema
+final createdAt = createdAt_example; // String | Specifies the starting date which filters the responses
 
 try { 
-    final result = api_instance.collectionSchemaRelationsGet(schema, relations);
+    final result = api_instance.collectionSchemaRelationsGet(schema, relations, isJson, createdAt);
     print(result);
 } catch (e) {
     print('Exception when calling CollectionApi->collectionSchemaRelationsGet: $e\n');
@@ -289,6 +303,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **schema** | **String**| The schema of the collection | 
  **relations** | [**List<Object>**](Object.md)| The depending models of the schema | [default to const []]
+ **isJson** | **bool**| Indicates whether to response with the collection schema | [optional] 
+ **createdAt** | **String**| Specifies the starting date which filters the responses | [optional] 
 
 ### Return type
 

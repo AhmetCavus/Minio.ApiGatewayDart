@@ -25,7 +25,13 @@ class CollectionApi {
   ///
   /// * [String] schema (required):
   ///   The schema of the collection
-  Future<Response> collectionSchemaGetWithHttpInfo(String schema) async {
+  ///
+  /// * [bool] isJson:
+  ///   Indicates whether to response with the collection schema
+  ///
+  /// * [String] createdAt:
+  ///   Specifies the starting date which filters the responses
+  Future<Response> collectionSchemaGetWithHttpInfo(String schema, { bool isJson, String createdAt }) async {
     // Verify required params are set.
     if (schema == null) {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: schema');
@@ -39,6 +45,13 @@ class CollectionApi {
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
+
+    if (isJson != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat('', 'isJson', isJson));
+    }
+    if (createdAt != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat('', 'createdAt', createdAt));
+    }
 
     final contentTypes = <String>[];
     final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
@@ -65,8 +78,14 @@ class CollectionApi {
   ///
   /// * [String] schema (required):
   ///   The schema of the collection
-  Future<List<Object>> collectionSchemaGet(String schema) async {
-    final response = await collectionSchemaGetWithHttpInfo(schema);
+  ///
+  /// * [bool] isJson:
+  ///   Indicates whether to response with the collection schema
+  ///
+  /// * [String] createdAt:
+  ///   Specifies the starting date which filters the responses
+  Future<List<Object>> collectionSchemaGet(String schema, { bool isJson, String createdAt }) async {
+    final response = await collectionSchemaGetWithHttpInfo(schema,  isJson: isJson, createdAt: createdAt );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -248,8 +267,14 @@ class CollectionApi {
   /// * [String] schema (required):
   ///   The schema of the collection
   ///
+  /// * [bool] isJson:
+  ///   Indicates whether to response with the collection schema
+  ///
+  /// * [String] createdAt:
+  ///   Specifies the starting date which filters the responses
+  ///
   /// * [Object] body:
-  Future<Response> collectionSchemaPostWithHttpInfo(String schema, { Object body }) async {
+  Future<Response> collectionSchemaPostWithHttpInfo(String schema, { bool isJson, String createdAt, Object body }) async {
     // Verify required params are set.
     if (schema == null) {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: schema');
@@ -263,6 +288,13 @@ class CollectionApi {
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
+
+    if (isJson != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat('', 'isJson', isJson));
+    }
+    if (createdAt != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat('', 'createdAt', createdAt));
+    }
 
     final contentTypes = <String>['application/json'];
     final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
@@ -290,9 +322,15 @@ class CollectionApi {
   /// * [String] schema (required):
   ///   The schema of the collection
   ///
+  /// * [bool] isJson:
+  ///   Indicates whether to response with the collection schema
+  ///
+  /// * [String] createdAt:
+  ///   Specifies the starting date which filters the responses
+  ///
   /// * [Object] body:
-  Future<List<Object>> collectionSchemaPost(String schema, { Object body }) async {
-    final response = await collectionSchemaPostWithHttpInfo(schema,  body: body );
+  Future<List<Object>> collectionSchemaPost(String schema, { bool isJson, String createdAt, Object body }) async {
+    final response = await collectionSchemaPostWithHttpInfo(schema,  isJson: isJson, createdAt: createdAt, body: body );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -318,8 +356,14 @@ class CollectionApi {
   /// * [String] schema (required):
   ///   The schema of the collection
   ///
+  /// * [bool] isJson:
+  ///   Indicates whether to response with the collection schema
+  ///
+  /// * [String] createdAt:
+  ///   Specifies the starting date which filters the responses
+  ///
   /// * [List<Object>] requestBody:
-  Future<Response> collectionSchemaPutWithHttpInfo(String schema, { List<Object> requestBody }) async {
+  Future<Response> collectionSchemaPutWithHttpInfo(String schema, { bool isJson, String createdAt, List<Object> requestBody }) async {
     // Verify required params are set.
     if (schema == null) {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: schema');
@@ -333,6 +377,13 @@ class CollectionApi {
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
+
+    if (isJson != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat('', 'isJson', isJson));
+    }
+    if (createdAt != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat('', 'createdAt', createdAt));
+    }
 
     final contentTypes = <String>['application/json'];
     final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
@@ -360,9 +411,15 @@ class CollectionApi {
   /// * [String] schema (required):
   ///   The schema of the collection
   ///
+  /// * [bool] isJson:
+  ///   Indicates whether to response with the collection schema
+  ///
+  /// * [String] createdAt:
+  ///   Specifies the starting date which filters the responses
+  ///
   /// * [List<Object>] requestBody:
-  Future<List<Object>> collectionSchemaPut(String schema, { List<Object> requestBody }) async {
-    final response = await collectionSchemaPutWithHttpInfo(schema,  requestBody: requestBody );
+  Future<List<Object>> collectionSchemaPut(String schema, { bool isJson, String createdAt, List<Object> requestBody }) async {
+    final response = await collectionSchemaPutWithHttpInfo(schema,  isJson: isJson, createdAt: createdAt, requestBody: requestBody );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -390,7 +447,13 @@ class CollectionApi {
   ///
   /// * [List<Object>] relations (required):
   ///   The depending models of the schema
-  Future<Response> collectionSchemaRelationsGetWithHttpInfo(String schema, List<Object> relations) async {
+  ///
+  /// * [bool] isJson:
+  ///   Indicates whether to response with the collection schema
+  ///
+  /// * [String] createdAt:
+  ///   Specifies the starting date which filters the responses
+  Future<Response> collectionSchemaRelationsGetWithHttpInfo(String schema, List<Object> relations, { bool isJson, String createdAt }) async {
     // Verify required params are set.
     if (schema == null) {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: schema');
@@ -408,6 +471,13 @@ class CollectionApi {
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
+
+    if (isJson != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat('', 'isJson', isJson));
+    }
+    if (createdAt != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat('', 'createdAt', createdAt));
+    }
 
     final contentTypes = <String>[];
     final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
@@ -437,8 +507,14 @@ class CollectionApi {
   ///
   /// * [List<Object>] relations (required):
   ///   The depending models of the schema
-  Future<List<Object>> collectionSchemaRelationsGet(String schema, List<Object> relations) async {
-    final response = await collectionSchemaRelationsGetWithHttpInfo(schema, relations);
+  ///
+  /// * [bool] isJson:
+  ///   Indicates whether to response with the collection schema
+  ///
+  /// * [String] createdAt:
+  ///   Specifies the starting date which filters the responses
+  Future<List<Object>> collectionSchemaRelationsGet(String schema, List<Object> relations, { bool isJson, String createdAt }) async {
+    final response = await collectionSchemaRelationsGetWithHttpInfo(schema, relations,  isJson: isJson, createdAt: createdAt );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
