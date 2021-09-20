@@ -9,6 +9,12 @@
 
 part of openapi.api;
 
+@JsonSerializable(
+  checked: true,
+  createToJson: true,
+  disallowUnrecognizedKeys: true,
+  explicitToJson: true,
+)
 class AuthRegisterResponse {
   /// Returns a new [AuthRegisterResponse] instance.
   AuthRegisterResponse({
@@ -16,10 +22,20 @@ class AuthRegisterResponse {
     this.profile,
   });
 
-  /// Indicates whether the request was successfull or not
+      /// Indicates whether the request was successfull or not
+  @JsonKey(
+    nullable: false,
+    name: r'success',
+    required: false,
+  )
   bool success;
 
-  /// The jwt token in order to verify further requests with the Rest API or Socket communication
+      /// The jwt token in order to verify further requests with the Rest API or Socket communication
+  @JsonKey(
+    nullable: false,
+    name: r'profile',
+    required: false,
+  )
   String profile;
 
   @override
@@ -32,51 +48,14 @@ class AuthRegisterResponse {
     (success == null ? 0 : success.hashCode) +
     (profile == null ? 0 : profile.hashCode);
 
+  factory AuthRegisterResponse.fromJson(Map<String, dynamic> json) => _$AuthRegisterResponseFromJson(json);
+
+  Map<String, dynamic> toJson() => _$AuthRegisterResponseToJson(this);
+
   @override
-  String toString() => 'AuthRegisterResponse[success=$success, profile=$profile]';
-
-  Map<String, dynamic> toJson() {
-    final json = <String, dynamic>{};
-    if (success != null) {
-      json[r'success'] = success;
-    }
-    if (profile != null) {
-      json[r'profile'] = profile;
-    }
-    return json;
+  String toString() {
+    return toJson().toString();
   }
 
-  /// Returns a new [AuthRegisterResponse] instance and imports its values from
-  /// [json] if it's non-null, null if [json] is null.
-  static AuthRegisterResponse fromJson(Map<String, dynamic> json) => json == null
-    ? null
-    : AuthRegisterResponse(
-        success: json[r'success'],
-        profile: json[r'profile'],
-    );
-
-  static List<AuthRegisterResponse> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <AuthRegisterResponse>[]
-      : json.map((dynamic value) => AuthRegisterResponse.fromJson(value)).toList(growable: true == growable);
-
-  static Map<String, AuthRegisterResponse> mapFromJson(Map<String, dynamic> json) {
-    final map = <String, AuthRegisterResponse>{};
-    if (json?.isNotEmpty == true) {
-      json.forEach((key, value) => map[key] = AuthRegisterResponse.fromJson(value));
-    }
-    return map;
-  }
-
-  // maps a json object with a list of AuthRegisterResponse-objects as value to a dart map
-  static Map<String, List<AuthRegisterResponse>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
-    final map = <String, List<AuthRegisterResponse>>{};
-    if (json?.isNotEmpty == true) {
-      json.forEach((key, value) {
-        map[key] = AuthRegisterResponse.listFromJson(value, emptyIsNull: emptyIsNull, growable: growable,);
-      });
-    }
-    return map;
-  }
 }
 

@@ -68,8 +68,9 @@ class AuthenticateApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AuthResponse',) as AuthResponse;
-        }
+
+      return AuthResponse.fromJson(json.decode(response.body));
+    }
     return Future<AuthResponse>.value(null);
   }
 
@@ -126,8 +127,9 @@ class AuthenticateApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AuthRegisterResponse',) as AuthRegisterResponse;
-        }
+
+      return AuthRegisterResponse.fromJson(json.decode(response.body));
+    }
     return Future<AuthRegisterResponse>.value(null);
   }
 }

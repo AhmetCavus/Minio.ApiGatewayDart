@@ -139,21 +139,6 @@ class ApiClient {
     throw ApiException(HttpStatus.badRequest, 'Invalid HTTP operation: $method $path',);
   }
 
-  Future<dynamic> deserializeAsync(String json, String targetType, {bool growable}) async =>
-    // ignore: deprecated_member_use_from_same_package
-    deserialize(json, targetType, growable: growable);
-
-  @Deprecated('Scheduled for removal in OpenAPI Generator 6.x. Use deserializeAsync() instead.')
-  dynamic deserialize(String json, String targetType, {bool growable}) {
-    // Remove all spaces. Necessary for regular expressions as well.
-    targetType = targetType.replaceAll(' ', ''); // ignore: parameter_assignments
-
-    // If the expected target type is String, nothing to do...
-    return targetType == 'String'
-      ? json
-      : _deserialize(jsonDecode(json), targetType, growable: growable == true);
-  }
-
   // ignore: deprecated_member_use_from_same_package
   Future<String> serializeAsync(Object value) async => serialize(value);
 
@@ -176,91 +161,6 @@ class ApiClient {
     }
   }
 
-  static dynamic _deserialize(dynamic value, String targetType, {bool growable}) {
-    try {
-      switch (targetType) {
-        case 'String':
-          return '$value';
-        case 'int':
-          return value is int ? value : int.parse('$value');
-        case 'bool':
-          if (value is bool) {
-            return value;
-          }
-          final valueString = '$value'.toLowerCase();
-          return valueString == 'true' || valueString == '1';
-          break;
-        case 'double':
-          return value is double ? value : double.parse('$value');
-        case 'AuthBody':
-          return AuthBody.fromJson(value);
-        case 'AuthRegisterBody':
-          return AuthRegisterBody.fromJson(value);
-        case 'AuthRegisterResponse':
-          return AuthRegisterResponse.fromJson(value);
-        case 'AuthResponse':
-          return AuthResponse.fromJson(value);
-        default:
-          Match match;
-          if (value is List && (match = _regList.firstMatch(targetType)) != null) {
-            targetType = match[1]; // ignore: parameter_assignments
-            return value
-              .map((v) => _deserialize(v, targetType, growable: growable))
-              .toList(growable: growable);
-          }
-          if (value is Set && (match = _regSet.firstMatch(targetType)) != null) {
-            targetType = match[1]; // ignore: parameter_assignments
-            return value
-              .map((v) => _deserialize(v, targetType, growable: growable))
-              .toSet();
-          }
-          if (value is Map && (match = _regMap.firstMatch(targetType)) != null) {
-            targetType = match[1]; // ignore: parameter_assignments
-            return Map.fromIterables(
-              value.keys,
-              value.values.map((v) => _deserialize(v, targetType, growable: growable)),
-            );
-          }
-          break;
-      }
-    } catch (error, trace) {
-      throw ApiException.withInner(HttpStatus.internalServerError, 'Exception during deserialization.', error, trace,);
-    }
-    throw ApiException(HttpStatus.internalServerError, 'Could not find a suitable class for deserialization',);
-  }
-}
-
-/// Primarily intended for use in an isolate.
-class DeserializationMessage {
-  const DeserializationMessage({
-    @required this.json,
-    @required this.targetType,
-    this.growable,
-  });
-
-  /// The JSON value to deserialize.
-  final String json;
-
-  /// Target type to deserialize to.
-  final String targetType;
-
-  /// Whether to make deserialized lists or maps growable.
-  final bool growable;
-}
-
-/// Primarily intended for use in an isolate.
-Future<dynamic> deserializeAsync(DeserializationMessage message) async {
-  // Remove all spaces. Necessary for regular expressions as well.
-  final targetType = message.targetType.replaceAll(' ', '');
-
-  // If the expected target type is String, nothing to do...
-  return targetType == 'String'
-    ? message.json
-    : ApiClient._deserialize(
-        jsonDecode(message.json),
-        targetType,
-        growable: message.growable == true,
-      );
 }
 
 /// Primarily intended for use in an isolate.

@@ -74,9 +74,10 @@ class CollectionApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<String>') as List)
-        .cast<String>()
-        .toList(growable: false);
+
+      return (json.decode(response.body) as List)
+        .map((i) => String.fromJson(i))
+        .toList();
     }
     return Future<List<String>>.value(null);
   }
@@ -150,9 +151,10 @@ class CollectionApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<String>') as List)
-        .cast<String>()
-        .toList(growable: false);
+
+      return (json.decode(response.body) as List)
+        .map((i) => String.fromJson(i))
+        .toList();
     }
     return Future<List<String>>.value(null);
   }
@@ -230,9 +232,10 @@ class CollectionApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<String>') as List)
-        .cast<String>()
-        .toList(growable: false);
+
+      return (json.decode(response.body) as List)
+        .map((i) => String.fromJson(i))
+        .toList();
     }
     return Future<List<String>>.value(null);
   }
@@ -300,9 +303,10 @@ class CollectionApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<String>') as List)
-        .cast<String>()
-        .toList(growable: false);
+
+      return (json.decode(response.body) as List)
+        .map((i) => String.fromJson(i))
+        .toList();
     }
     return Future<List<String>>.value(null);
   }
@@ -370,9 +374,10 @@ class CollectionApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<String>') as List)
-        .cast<String>()
-        .toList(growable: false);
+
+      return (json.decode(response.body) as List)
+        .map((i) => String.fromJson(i))
+        .toList();
     }
     return Future<List<String>>.value(null);
   }
@@ -446,9 +451,10 @@ class CollectionApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<String>') as List)
-        .cast<String>()
-        .toList(growable: false);
+
+      return (json.decode(response.body) as List)
+        .map((i) => String.fromJson(i))
+        .toList();
     }
     return Future<List<String>>.value(null);
   }
