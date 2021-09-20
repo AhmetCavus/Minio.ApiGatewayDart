@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 
 # **collectionSchemaGet**
-> List<Object> collectionSchemaGet(schema, isJson, createdAt)
+> List<CollectionItem> collectionSchemaGet(schema, isJson, createdAt)
 
 Gets a collection by name
 
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<Object>**](Object.md)
+[**List<CollectionItem>**](CollectionItem.md)
 
 ### Authorization
 
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **collectionSchemaIdDelete**
-> List<Object> collectionSchemaIdDelete(schema, id)
+> List<CollectionItem> collectionSchemaIdDelete(schema, id)
 
 Deletes the item in the collection that matches the id
 
@@ -102,7 +102,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<Object>**](Object.md)
+[**List<CollectionItem>**](CollectionItem.md)
 
 ### Authorization
 
@@ -116,7 +116,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **collectionSchemaIdPut**
-> List<Object> collectionSchemaIdPut(schema, id, body)
+> List<CollectionItem> collectionSchemaIdPut(schema, id, body)
 
 Replaces the item in the collection with the one in the request body
 
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<Object>**](Object.md)
+[**List<CollectionItem>**](CollectionItem.md)
 
 ### Authorization
 
@@ -163,7 +163,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **collectionSchemaPost**
-> List<Object> collectionSchemaPost(schema, isJson, createdAt, body)
+> List<CollectionItem> collectionSchemaPost(schema, isJson, createdAt, body)
 
 Adds a new item to the collection
 
@@ -204,7 +204,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<Object>**](Object.md)
+[**List<CollectionItem>**](CollectionItem.md)
 
 ### Authorization
 
@@ -218,7 +218,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **collectionSchemaPut**
-> List<Object> collectionSchemaPut(schema, isJson, createdAt, requestBody)
+> List<CollectionItem> collectionSchemaPut(schema, isJson, createdAt, requestBody)
 
 Replaces the whole collection with the given one
 
@@ -253,7 +253,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<Object>**](Object.md)
+[**List<CollectionItem>**](CollectionItem.md)
 
 ### Authorization
 
@@ -267,7 +267,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **collectionSchemaRelationsGet**
-> List<Object> collectionSchemaRelationsGet(schema, relations, isJson, createdAt)
+> List<CollectionItem> collectionSchemaRelationsGet(schema, relations, isJson, createdAt)
 
 Gets a collection by name with resolving the relations
 
@@ -285,7 +285,7 @@ import 'package:openapi/api.dart';
 
 final api_instance = CollectionApi();
 final schema = schema_example; // String | The schema of the collection
-final relations = []; // List<Object> | The depending models of the schema
+final relations = []; // List<String> | The depending models of the schema
 final isJson = true; // bool | Indicates whether to response with the collection schema
 final createdAt = createdAt_example; // String | Specifies the starting date which filters the responses
 
@@ -302,13 +302,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **schema** | **String**| The schema of the collection | 
- **relations** | [**List<Object>**](Object.md)| The depending models of the schema | [default to const []]
+ **relations** | [**List<String>**](String.md)| The depending models of the schema | [default to const []]
  **isJson** | **bool**| Indicates whether to response with the collection schema | [optional] 
  **createdAt** | **String**| Specifies the starting date which filters the responses | [optional] 
 
 ### Return type
 
-[**List<Object>**](Object.md)
+[**List<CollectionItem>**](CollectionItem.md)
 
 ### Authorization
 
