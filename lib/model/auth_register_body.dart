@@ -9,12 +9,6 @@
 
 part of openapi.api;
 
-@JsonSerializable(
-  checked: true,
-  createToJson: true,
-  disallowUnrecognizedKeys: true,
-  explicitToJson: true,
-)
 class AuthRegisterBody {
   /// Returns a new [AuthRegisterBody] instance.
   AuthRegisterBody({
@@ -23,28 +17,13 @@ class AuthRegisterBody {
     this.password,
   });
 
-      /// A unique identifier for the profile
-  @JsonKey(
-    nullable: false,
-    name: r'username',
-    required: false,
-  )
+  /// A unique identifier for the profile
   String username;
 
-      /// A unique id like the mail address
-  @JsonKey(
-    nullable: false,
-    name: r'email',
-    required: false,
-  )
+  /// A unique id like the mail address
   String email;
 
-      /// The password of the depending clientId
-  @JsonKey(
-    nullable: false,
-    name: r'password',
-    required: false,
-  )
+  /// The password of the depending clientId
   String password;
 
   @override
@@ -59,14 +38,55 @@ class AuthRegisterBody {
     (email == null ? 0 : email.hashCode) +
     (password == null ? 0 : password.hashCode);
 
-  factory AuthRegisterBody.fromJson(Map<String, dynamic> json) => _$AuthRegisterBodyFromJson(json);
-
-  Map<String, dynamic> toJson() => _$AuthRegisterBodyToJson(this);
-
   @override
-  String toString() {
-    return toJson().toString();
+  String toString() => 'AuthRegisterBody[username=$username, email=$email, password=$password]';
+
+  Map<String, dynamic> toJson() {
+    final json = <String, dynamic>{};
+    if (username != null) {
+      json[r'username'] = username;
+    }
+    if (email != null) {
+      json[r'email'] = email;
+    }
+    if (password != null) {
+      json[r'password'] = password;
+    }
+    return json;
   }
 
+  /// Returns a new [AuthRegisterBody] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static AuthRegisterBody fromJson(Map<String, dynamic> json) => json == null
+    ? null
+    : AuthRegisterBody(
+        username: json[r'username'],
+        email: json[r'email'],
+        password: json[r'password'],
+    );
+
+  static List<AuthRegisterBody> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
+    json == null || json.isEmpty
+      ? true == emptyIsNull ? null : <AuthRegisterBody>[]
+      : json.map((dynamic value) => AuthRegisterBody.fromJson(value)).toList(growable: true == growable);
+
+  static Map<String, AuthRegisterBody> mapFromJson(Map<String, dynamic> json) {
+    final map = <String, AuthRegisterBody>{};
+    if (json?.isNotEmpty == true) {
+      json.forEach((key, value) => map[key] = AuthRegisterBody.fromJson(value));
+    }
+    return map;
+  }
+
+  // maps a json object with a list of AuthRegisterBody-objects as value to a dart map
+  static Map<String, List<AuthRegisterBody>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+    final map = <String, List<AuthRegisterBody>>{};
+    if (json?.isNotEmpty == true) {
+      json.forEach((key, value) {
+        map[key] = AuthRegisterBody.listFromJson(value, emptyIsNull: emptyIsNull, growable: growable,);
+      });
+    }
+    return map;
+  }
 }
 

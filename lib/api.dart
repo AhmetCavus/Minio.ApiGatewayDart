@@ -15,7 +15,6 @@ import 'dart:io';
 
 import 'package:http/http.dart';
 import 'package:intl/intl.dart';
-import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
 part 'api_client.dart';
@@ -37,7 +36,6 @@ part 'model/auth_register_response.dart';
 part 'model/auth_response.dart';
 
 
-part 'api.g.dart';
 const _delimiters = {'csv': ',', 'ssv': ' ', 'tsv': '\t', 'pipes': '|'};
 const _dateEpochMarker = 'epoch';
 final _dateFormatter = DateFormat('yyyy-MM-dd');
