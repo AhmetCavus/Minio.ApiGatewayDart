@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 
 # **collectionSchemaGet**
-> List<String> collectionSchemaGet(schema)
+> List<Object> collectionSchemaGet(schema)
 
 Gets a collection by name
 
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**List<String>**
+[**List<Object>**](Object.md)
 
 ### Authorization
 
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **collectionSchemaIdDelete**
-> List<String> collectionSchemaIdDelete(schema, id)
+> List<Object> collectionSchemaIdDelete(schema, id)
 
 Deletes the item in the collection that matches the id
 
@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**List<String>**
+[**List<Object>**](Object.md)
 
 ### Authorization
 
@@ -112,7 +112,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **collectionSchemaIdPut**
-> List<String> collectionSchemaIdPut(schema, id, body)
+> List<Object> collectionSchemaIdPut(schema, id, body)
 
 Replaces the item in the collection with the one in the request body
 
@@ -145,7 +145,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**List<String>**
+[**List<Object>**](Object.md)
 
 ### Authorization
 
@@ -159,7 +159,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **collectionSchemaPost**
-> List<String> collectionSchemaPost(schema, body)
+> List<Object> collectionSchemaPost(schema, body)
 
 Adds a new item to the collection
 
@@ -196,7 +196,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**List<String>**
+[**List<Object>**](Object.md)
 
 ### Authorization
 
@@ -210,7 +210,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **collectionSchemaPut**
-> List<String> collectionSchemaPut(schema, requestBody)
+> List<Object> collectionSchemaPut(schema, requestBody)
 
 Replaces the whole collection with the given one
 
@@ -241,7 +241,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**List<String>**
+[**List<Object>**](Object.md)
 
 ### Authorization
 
@@ -255,7 +255,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **collectionSchemaRelationsGet**
-> List<String> collectionSchemaRelationsGet(schema, relations)
+> List<Object> collectionSchemaRelationsGet(schema, relations)
 
 Gets a collection by name with resolving the relations
 
@@ -273,7 +273,7 @@ import 'package:openapi/api.dart';
 
 final api_instance = CollectionApi();
 final schema = schema_example; // String | The schema of the collection
-final relations = []; // List<String> | The depending models of the schema
+final relations = []; // List<Object> | The depending models of the schema
 
 try { 
     final result = api_instance.collectionSchemaRelationsGet(schema, relations);
@@ -288,11 +288,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **schema** | **String**| The schema of the collection | 
- **relations** | [**List<String>**](String.md)| The depending models of the schema | [default to const []]
+ **relations** | [**List<Object>**](Object.md)| The depending models of the schema | [default to const []]
 
 ### Return type
 
-**List<String>**
+[**List<Object>**](Object.md)
 
 ### Authorization
 

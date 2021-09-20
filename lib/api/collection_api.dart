@@ -65,7 +65,7 @@ class CollectionApi {
   ///
   /// * [String] schema (required):
   ///   The schema of the collection
-  Future<List<String>> collectionSchemaGet(String schema) async {
+  Future<List<Object>> collectionSchemaGet(String schema) async {
     final response = await collectionSchemaGetWithHttpInfo(schema);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -74,11 +74,11 @@ class CollectionApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<String>') as List)
-        .cast<String>()
+      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<Object>') as List)
+        .cast<Object>()
         .toList(growable: false);
     }
-    return Future<List<String>>.value(null);
+    return Future<List<Object>>.value(null);
   }
 
   /// Deletes the item in the collection that matches the id
@@ -141,7 +141,7 @@ class CollectionApi {
   ///
   /// * [String] id (required):
   ///   The id of the item in the collection
-  Future<List<String>> collectionSchemaIdDelete(String schema, String id) async {
+  Future<List<Object>> collectionSchemaIdDelete(String schema, String id) async {
     final response = await collectionSchemaIdDeleteWithHttpInfo(schema, id);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -150,11 +150,11 @@ class CollectionApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<String>') as List)
-        .cast<String>()
+      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<Object>') as List)
+        .cast<Object>()
         .toList(growable: false);
     }
-    return Future<List<String>>.value(null);
+    return Future<List<Object>>.value(null);
   }
 
   /// Replaces the item in the collection with the one in the request body
@@ -221,7 +221,7 @@ class CollectionApi {
   ///   The id of the item in the collection
   ///
   /// * [Object] body:
-  Future<List<String>> collectionSchemaIdPut(String schema, String id, { Object body }) async {
+  Future<List<Object>> collectionSchemaIdPut(String schema, String id, { Object body }) async {
     final response = await collectionSchemaIdPutWithHttpInfo(schema, id,  body: body );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -230,11 +230,11 @@ class CollectionApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<String>') as List)
-        .cast<String>()
+      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<Object>') as List)
+        .cast<Object>()
         .toList(growable: false);
     }
-    return Future<List<String>>.value(null);
+    return Future<List<Object>>.value(null);
   }
 
   /// Adds a new item to the collection
@@ -291,7 +291,7 @@ class CollectionApi {
   ///   The schema of the collection
   ///
   /// * [Object] body:
-  Future<List<String>> collectionSchemaPost(String schema, { Object body }) async {
+  Future<List<Object>> collectionSchemaPost(String schema, { Object body }) async {
     final response = await collectionSchemaPostWithHttpInfo(schema,  body: body );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -300,11 +300,11 @@ class CollectionApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<String>') as List)
-        .cast<String>()
+      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<Object>') as List)
+        .cast<Object>()
         .toList(growable: false);
     }
-    return Future<List<String>>.value(null);
+    return Future<List<Object>>.value(null);
   }
 
   /// Replaces the whole collection with the given one
@@ -361,7 +361,7 @@ class CollectionApi {
   ///   The schema of the collection
   ///
   /// * [List<Object>] requestBody:
-  Future<List<String>> collectionSchemaPut(String schema, { List<Object> requestBody }) async {
+  Future<List<Object>> collectionSchemaPut(String schema, { List<Object> requestBody }) async {
     final response = await collectionSchemaPutWithHttpInfo(schema,  requestBody: requestBody );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -370,11 +370,11 @@ class CollectionApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<String>') as List)
-        .cast<String>()
+      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<Object>') as List)
+        .cast<Object>()
         .toList(growable: false);
     }
-    return Future<List<String>>.value(null);
+    return Future<List<Object>>.value(null);
   }
 
   /// Gets a collection by name with resolving the relations
@@ -388,9 +388,9 @@ class CollectionApi {
   /// * [String] schema (required):
   ///   The schema of the collection
   ///
-  /// * [List<String>] relations (required):
+  /// * [List<Object>] relations (required):
   ///   The depending models of the schema
-  Future<Response> collectionSchemaRelationsGetWithHttpInfo(String schema, List<String> relations) async {
+  Future<Response> collectionSchemaRelationsGetWithHttpInfo(String schema, List<Object> relations) async {
     // Verify required params are set.
     if (schema == null) {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: schema');
@@ -435,9 +435,9 @@ class CollectionApi {
   /// * [String] schema (required):
   ///   The schema of the collection
   ///
-  /// * [List<String>] relations (required):
+  /// * [List<Object>] relations (required):
   ///   The depending models of the schema
-  Future<List<String>> collectionSchemaRelationsGet(String schema, List<String> relations) async {
+  Future<List<Object>> collectionSchemaRelationsGet(String schema, List<Object> relations) async {
     final response = await collectionSchemaRelationsGetWithHttpInfo(schema, relations);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -446,10 +446,10 @@ class CollectionApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<String>') as List)
-        .cast<String>()
+      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<Object>') as List)
+        .cast<Object>()
         .toList(growable: false);
     }
-    return Future<List<String>>.value(null);
+    return Future<List<Object>>.value(null);
   }
 }
