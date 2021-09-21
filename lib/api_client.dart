@@ -192,6 +192,8 @@ class ApiClient {
           break;
         case 'double':
           return value is double ? value : double.parse('$value');
+        case 'AddCollectionItemResponse':
+          return AddCollectionItemResponse.fromJson(value);
         case 'AuthBody':
           return AuthBody.fromJson(value);
         case 'AuthRegisterBody':

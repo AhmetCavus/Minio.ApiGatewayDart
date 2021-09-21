@@ -163,7 +163,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **collectionSchemaPost**
-> List<CollectionItem> collectionSchemaPost(schema, isJson, createdAt, body)
+> AddCollectionItemResponse collectionSchemaPost(schema, isJson, createdAt, body)
 
 Adds a new item to the collection
 
@@ -204,7 +204,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<CollectionItem>**](CollectionItem.md)
+[**AddCollectionItemResponse**](AddCollectionItemResponse.md)
 
 ### Authorization
 

@@ -329,7 +329,7 @@ class CollectionApi {
   ///   Specifies the starting date which filters the responses
   ///
   /// * [Object] body:
-  Future<List<CollectionItem>> collectionSchemaPost(String schema, { bool isJson, String createdAt, Object body }) async {
+  Future<AddCollectionItemResponse> collectionSchemaPost(String schema, { bool isJson, String createdAt, Object body }) async {
     final response = await collectionSchemaPostWithHttpInfo(schema,  isJson: isJson, createdAt: createdAt, body: body );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -338,11 +338,9 @@ class CollectionApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<CollectionItem>') as List)
-        .cast<CollectionItem>()
-        .toList(growable: false);
-    }
-    return Future<List<CollectionItem>>.value(null);
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AddCollectionItemResponse',) as AddCollectionItemResponse;
+        }
+    return Future<AddCollectionItemResponse>.value(null);
   }
 
   /// Replaces the whole collection with the given one
