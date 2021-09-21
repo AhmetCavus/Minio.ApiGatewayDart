@@ -2,7 +2,6 @@
 .travis.yml
 README.md
 analysis_options.yaml
-doc/AddCollectionItemResponse.md
 doc/AuthBody.md
 doc/AuthRegisterBody.md
 doc/AuthRegisterResponse.md
@@ -10,7 +9,6 @@ doc/AuthResponse.md
 doc/AuthenticateApi.md
 doc/ChannelApi.md
 doc/CollectionApi.md
-doc/CollectionItem.md
 git_push.sh
 lib/api.dart
 lib/api/authenticate_api.dart
@@ -24,10 +22,8 @@ lib/auth/authentication.dart
 lib/auth/http_basic_auth.dart
 lib/auth/http_bearer_auth.dart
 lib/auth/oauth.dart
-lib/model/add_collection_item_response.dart
 lib/model/auth_body.dart
 lib/model/auth_register_body.dart
 lib/model/auth_register_response.dart
 lib/model/auth_response.dart
-lib/model/collection_item.dart
 pubspec.yaml

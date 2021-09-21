@@ -71,12 +71,10 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
- - [AddCollectionItemResponse](doc\/AddCollectionItemResponse.md)
  - [AuthBody](doc\/AuthBody.md)
  - [AuthRegisterBody](doc\/AuthRegisterBody.md)
  - [AuthRegisterResponse](doc\/AuthRegisterResponse.md)
  - [AuthResponse](doc\/AuthResponse.md)
- - [CollectionItem](doc\/CollectionItem.md)
 
 
 ## Documentation For Authorization

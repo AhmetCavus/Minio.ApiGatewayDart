@@ -84,7 +84,7 @@ class CollectionApi {
   ///
   /// * [String] createdAt:
   ///   Specifies the starting date which filters the responses
-  Future<List<CollectionItem>> collectionSchemaGet(String schema, { bool isJson, String createdAt }) async {
+  Future<List<Object>> collectionSchemaGet(String schema, { bool isJson, String createdAt }) async {
     final response = await collectionSchemaGetWithHttpInfo(schema,  isJson: isJson, createdAt: createdAt );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -93,11 +93,11 @@ class CollectionApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<CollectionItem>') as List)
-        .cast<CollectionItem>()
+      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<Object>') as List)
+        .cast<Object>()
         .toList(growable: false);
     }
-    return Future<List<CollectionItem>>.value(null);
+    return Future<List<Object>>.value(null);
   }
 
   /// Deletes the item in the collection that matches the id
@@ -160,7 +160,7 @@ class CollectionApi {
   ///
   /// * [String] id (required):
   ///   The id of the item in the collection
-  Future<List<CollectionItem>> collectionSchemaIdDelete(String schema, String id) async {
+  Future<List<Object>> collectionSchemaIdDelete(String schema, String id) async {
     final response = await collectionSchemaIdDeleteWithHttpInfo(schema, id);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -169,11 +169,11 @@ class CollectionApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<CollectionItem>') as List)
-        .cast<CollectionItem>()
+      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<Object>') as List)
+        .cast<Object>()
         .toList(growable: false);
     }
-    return Future<List<CollectionItem>>.value(null);
+    return Future<List<Object>>.value(null);
   }
 
   /// Replaces the item in the collection with the one in the request body
@@ -240,7 +240,7 @@ class CollectionApi {
   ///   The id of the item in the collection
   ///
   /// * [Object] body:
-  Future<List<CollectionItem>> collectionSchemaIdPut(String schema, String id, { Object body }) async {
+  Future<List<Object>> collectionSchemaIdPut(String schema, String id, { Object body }) async {
     final response = await collectionSchemaIdPutWithHttpInfo(schema, id,  body: body );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -249,11 +249,11 @@ class CollectionApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<CollectionItem>') as List)
-        .cast<CollectionItem>()
+      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<Object>') as List)
+        .cast<Object>()
         .toList(growable: false);
     }
-    return Future<List<CollectionItem>>.value(null);
+    return Future<List<Object>>.value(null);
   }
 
   /// Adds a new item to the collection
@@ -329,7 +329,7 @@ class CollectionApi {
   ///   Specifies the starting date which filters the responses
   ///
   /// * [Object] body:
-  Future<AddCollectionItemResponse> collectionSchemaPost(String schema, { bool isJson, String createdAt, Object body }) async {
+  Future<Object> collectionSchemaPost(String schema, { bool isJson, String createdAt, Object body }) async {
     final response = await collectionSchemaPostWithHttpInfo(schema,  isJson: isJson, createdAt: createdAt, body: body );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -338,9 +338,9 @@ class CollectionApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AddCollectionItemResponse',) as AddCollectionItemResponse;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
         }
-    return Future<AddCollectionItemResponse>.value(null);
+    return Future<Object>.value(null);
   }
 
   /// Replaces the whole collection with the given one
@@ -416,7 +416,7 @@ class CollectionApi {
   ///   Specifies the starting date which filters the responses
   ///
   /// * [List<Object>] requestBody:
-  Future<List<CollectionItem>> collectionSchemaPut(String schema, { bool isJson, String createdAt, List<Object> requestBody }) async {
+  Future<List<Object>> collectionSchemaPut(String schema, { bool isJson, String createdAt, List<Object> requestBody }) async {
     final response = await collectionSchemaPutWithHttpInfo(schema,  isJson: isJson, createdAt: createdAt, requestBody: requestBody );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -425,11 +425,11 @@ class CollectionApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<CollectionItem>') as List)
-        .cast<CollectionItem>()
+      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<Object>') as List)
+        .cast<Object>()
         .toList(growable: false);
     }
-    return Future<List<CollectionItem>>.value(null);
+    return Future<List<Object>>.value(null);
   }
 
   /// Gets a collection by name with resolving the relations
@@ -511,7 +511,7 @@ class CollectionApi {
   ///
   /// * [String] createdAt:
   ///   Specifies the starting date which filters the responses
-  Future<List<CollectionItem>> collectionSchemaRelationsGet(String schema, List<String> relations, { bool isJson, String createdAt }) async {
+  Future<List<Object>> collectionSchemaRelationsGet(String schema, List<String> relations, { bool isJson, String createdAt }) async {
     final response = await collectionSchemaRelationsGetWithHttpInfo(schema, relations,  isJson: isJson, createdAt: createdAt );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -520,10 +520,10 @@ class CollectionApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<CollectionItem>') as List)
-        .cast<CollectionItem>()
+      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<Object>') as List)
+        .cast<Object>()
         .toList(growable: false);
     }
-    return Future<List<CollectionItem>>.value(null);
+    return Future<List<Object>>.value(null);
   }
 }

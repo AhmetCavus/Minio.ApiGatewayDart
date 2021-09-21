@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 
 # **collectionSchemaGet**
-> List<CollectionItem> collectionSchemaGet(schema, isJson, createdAt)
+> List<Object> collectionSchemaGet(schema, isJson, createdAt)
 
 Gets a collection by name
 
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<CollectionItem>**](CollectionItem.md)
+[**List<Object>**](Object.md)
 
 ### Authorization
 
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **collectionSchemaIdDelete**
-> List<CollectionItem> collectionSchemaIdDelete(schema, id)
+> List<Object> collectionSchemaIdDelete(schema, id)
 
 Deletes the item in the collection that matches the id
 
@@ -102,7 +102,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<CollectionItem>**](CollectionItem.md)
+[**List<Object>**](Object.md)
 
 ### Authorization
 
@@ -116,7 +116,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **collectionSchemaIdPut**
-> List<CollectionItem> collectionSchemaIdPut(schema, id, body)
+> List<Object> collectionSchemaIdPut(schema, id, body)
 
 Replaces the item in the collection with the one in the request body
 
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<CollectionItem>**](CollectionItem.md)
+[**List<Object>**](Object.md)
 
 ### Authorization
 
@@ -163,7 +163,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **collectionSchemaPost**
-> AddCollectionItemResponse collectionSchemaPost(schema, isJson, createdAt, body)
+> Object collectionSchemaPost(schema, isJson, createdAt, body)
 
 Adds a new item to the collection
 
@@ -204,7 +204,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AddCollectionItemResponse**](AddCollectionItemResponse.md)
+[**Object**](Object.md)
 
 ### Authorization
 
@@ -218,7 +218,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **collectionSchemaPut**
-> List<CollectionItem> collectionSchemaPut(schema, isJson, createdAt, requestBody)
+> List<Object> collectionSchemaPut(schema, isJson, createdAt, requestBody)
 
 Replaces the whole collection with the given one
 
@@ -253,7 +253,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<CollectionItem>**](CollectionItem.md)
+[**List<Object>**](Object.md)
 
 ### Authorization
 
@@ -267,7 +267,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **collectionSchemaRelationsGet**
-> List<CollectionItem> collectionSchemaRelationsGet(schema, relations, isJson, createdAt)
+> List<Object> collectionSchemaRelationsGet(schema, relations, isJson, createdAt)
 
 Gets a collection by name with resolving the relations
 
@@ -308,7 +308,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<CollectionItem>**](CollectionItem.md)
+[**List<Object>**](Object.md)
 
 ### Authorization
 

@@ -192,8 +192,6 @@ class ApiClient {
           break;
         case 'double':
           return value is double ? value : double.parse('$value');
-        case 'AddCollectionItemResponse':
-          return AddCollectionItemResponse.fromJson(value);
         case 'AuthBody':
           return AuthBody.fromJson(value);
         case 'AuthRegisterBody':
@@ -202,8 +200,6 @@ class ApiClient {
           return AuthRegisterResponse.fromJson(value);
         case 'AuthResponse':
           return AuthResponse.fromJson(value);
-        case 'CollectionItem':
-          return CollectionItem.fromJson(value);
         default:
           Match match;
           if (value is List && (match = _regList.firstMatch(targetType)) != null) {
