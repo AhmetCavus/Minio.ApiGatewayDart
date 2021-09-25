@@ -134,7 +134,7 @@ class CollectionApi {
 
     final contentTypes = <String>[];
     final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
-    final authNames = <String>[];
+    final authNames = <String>['bearerAuth'];
 
 
     return await apiClient.invokeAPI(
@@ -212,7 +212,7 @@ class CollectionApi {
 
     final contentTypes = <String>['application/json'];
     final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
-    final authNames = <String>[];
+    final authNames = <String>['bearerAuth'];
 
 
     return await apiClient.invokeAPI(
@@ -385,7 +385,7 @@ class CollectionApi {
 
     final contentTypes = <String>['application/json'];
     final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
-    final authNames = <String>[];
+    final authNames = <String>['bearerAuth'];
 
 
     return await apiClient.invokeAPI(

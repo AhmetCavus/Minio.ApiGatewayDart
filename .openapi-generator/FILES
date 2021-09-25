@@ -9,6 +9,7 @@ doc/AuthResponse.md
 doc/AuthenticateApi.md
 doc/ChannelApi.md
 doc/CollectionApi.md
+doc/CreateChannelResponse.md
 git_push.sh
 lib/api.dart
 lib/api/authenticate_api.dart
@@ -26,4 +27,5 @@ lib/model/auth_body.dart
 lib/model/auth_register_body.dart
 lib/model/auth_register_response.dart
 lib/model/auth_response.dart
+lib/model/create_channel_response.dart
 pubspec.yaml

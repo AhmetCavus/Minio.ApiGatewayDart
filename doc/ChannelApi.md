@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **channelChannelIdPost**
-> AuthResponse channelChannelIdPost(channelId, authBody)
+> CreateChannelResponse channelChannelIdPost(channelId)
 
 Create a new chanel
 
@@ -22,13 +22,18 @@ Creates a new channel for sending broadcasts within the namespace
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure HTTP Bearer authorization: bearerAuth
+// Case 1. Use String Token
+//defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = ChannelApi();
-final channelId = 789; // int | ID of pet to update
-final authBody = AuthBody(); // AuthBody | 
+final channelId = channelId_example; // String | The name of the channel
 
 try { 
-    final result = api_instance.channelChannelIdPost(channelId, authBody);
+    final result = api_instance.channelChannelIdPost(channelId);
     print(result);
 } catch (e) {
     print('Exception when calling ChannelApi->channelChannelIdPost: $e\n');
@@ -39,20 +44,19 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **channelId** | **int**| ID of pet to update | 
- **authBody** | [**AuthBody**](AuthBody.md)|  | [optional] 
+ **channelId** | **String**| The name of the channel | 
 
 ### Return type
 
-[**AuthResponse**](AuthResponse.md)
+[**CreateChannelResponse**](CreateChannelResponse.md)
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

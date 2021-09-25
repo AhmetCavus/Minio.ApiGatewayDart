@@ -23,11 +23,9 @@ class ChannelApi {
   ///
   /// Parameters:
   ///
-  /// * [int] channelId (required):
-  ///   ID of pet to update
-  ///
-  /// * [AuthBody] authBody:
-  Future<Response> channelChannelIdPostWithHttpInfo(int channelId, { AuthBody authBody }) async {
+  /// * [String] channelId (required):
+  ///   The name of the channel
+  Future<Response> channelChannelIdPostWithHttpInfo(String channelId) async {
     // Verify required params are set.
     if (channelId == null) {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: channelId');
@@ -36,15 +34,15 @@ class ChannelApi {
     final path = r'/channel/{channelId}'
       .replaceAll('{' + 'channelId' + '}', channelId.toString());
 
-    Object postBody = authBody;
+    Object postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    final contentTypes = <String>['application/json'];
+    final contentTypes = <String>[];
     final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
-    final authNames = <String>[];
+    final authNames = <String>['bearerAuth'];
 
 
     return await apiClient.invokeAPI(
@@ -65,12 +63,10 @@ class ChannelApi {
   ///
   /// Parameters:
   ///
-  /// * [int] channelId (required):
-  ///   ID of pet to update
-  ///
-  /// * [AuthBody] authBody:
-  Future<AuthResponse> channelChannelIdPost(int channelId, { AuthBody authBody }) async {
-    final response = await channelChannelIdPostWithHttpInfo(channelId,  authBody: authBody );
+  /// * [String] channelId (required):
+  ///   The name of the channel
+  Future<CreateChannelResponse> channelChannelIdPost(String channelId) async {
+    final response = await channelChannelIdPostWithHttpInfo(channelId);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -78,8 +74,8 @@ class ChannelApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AuthResponse',) as AuthResponse;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'CreateChannelResponse',) as CreateChannelResponse;
         }
-    return Future<AuthResponse>.value(null);
+    return Future<CreateChannelResponse>.value(null);
   }
 }
