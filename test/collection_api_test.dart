@@ -20,7 +20,7 @@ void main() {
     //
     // Gets a collection by name
     //
-    //Future<List<String>> collectionSchemaGet(String schema) async
+    //Future<List<Object>> collectionSchemaGet(String schema, { bool isJson, String createdAt }) async
     test('test collectionSchemaGet', () async {
       // TODO
     });
@@ -29,7 +29,7 @@ void main() {
     //
     // Deletes the item in the collection that matches the id
     //
-    //Future<List<String>> collectionSchemaIdDelete(String schema, String id) async
+    //Future<List<Object>> collectionSchemaIdDelete(String schema, String id) async
     test('test collectionSchemaIdDelete', () async {
       // TODO
     });
@@ -38,7 +38,7 @@ void main() {
     //
     // Replaces the item in the collection with the one in the request body
     //
-    //Future<List<String>> collectionSchemaIdPut(String schema, String id, { Object body }) async
+    //Future<List<Object>> collectionSchemaIdPut(String schema, String id, { Object body }) async
     test('test collectionSchemaIdPut', () async {
       // TODO
     });
@@ -47,7 +47,7 @@ void main() {
     //
     // Adds a new item to the collection
     //
-    //Future<List<String>> collectionSchemaPost(String schema, { Object body }) async
+    //Future<Object> collectionSchemaPost(String schema, { bool isJson, String createdAt, Object body }) async
     test('test collectionSchemaPost', () async {
       // TODO
     });
@@ -56,7 +56,7 @@ void main() {
     //
     // Replaces the whole collection with the given one
     //
-    //Future<List<String>> collectionSchemaPut(String schema, { List<Object> requestBody }) async
+    //Future<List<Object>> collectionSchemaPut(String schema, { bool isJson, String createdAt, List<Object> requestBody }) async
     test('test collectionSchemaPut', () async {
       // TODO
     });
@@ -65,7 +65,7 @@ void main() {
     //
     // Gets a collection by name with resolving the relations
     //
-    //Future<List<String>> collectionSchemaRelationsGet(String schema, List<String> relations) async
+    //Future<List<Object>> collectionSchemaRelationsGet(String schema, List<String> relations, { bool isJson, String createdAt }) async
     test('test collectionSchemaRelationsGet', () async {
       // TODO
     });

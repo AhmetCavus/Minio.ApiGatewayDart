@@ -3,15 +3,15 @@
   "packages": [
     {
       "name": "_fe_analyzer_shared",
-      "rootUri": "file:///C:/Users/Ahmet%20Cavus/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/_fe_analyzer_shared-14.0.0",
+      "rootUri": "file:///C:/Users/Ahmet%20Cavus/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/_fe_analyzer_shared-26.0.0",
       "packageUri": "lib/",
-      "languageVersion": "2.2"
+      "languageVersion": "2.12"
     },
     {
       "name": "analyzer",
-      "rootUri": "file:///C:/Users/Ahmet%20Cavus/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/analyzer-0.41.2",
+      "rootUri": "file:///C:/Users/Ahmet%20Cavus/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/analyzer-2.3.0",
       "packageUri": "lib/",
-      "languageVersion": "2.7"
+      "languageVersion": "2.12"
     },
     {
       "name": "args",
@@ -63,9 +63,9 @@
     },
     {
       "name": "coverage",
-      "rootUri": "file:///C:/Users/Ahmet%20Cavus/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/coverage-0.15.2",
+      "rootUri": "file:///C:/Users/Ahmet%20Cavus/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/coverage-1.0.3",
       "packageUri": "lib/",
-      "languageVersion": "2.7"
+      "languageVersion": "2.12"
     },
     {
       "name": "crypto",
@@ -76,6 +76,12 @@
     {
       "name": "file",
       "rootUri": "file:///C:/Users/Ahmet%20Cavus/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/file-6.1.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "frontend_server_client",
+      "rootUri": "file:///C:/Users/Ahmet%20Cavus/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/frontend_server_client-2.1.2",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -93,9 +99,9 @@
     },
     {
       "name": "http_multi_server",
-      "rootUri": "file:///C:/Users/Ahmet%20Cavus/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/http_multi_server-2.2.0",
+      "rootUri": "file:///C:/Users/Ahmet%20Cavus/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/http_multi_server-3.0.1",
       "packageUri": "lib/",
-      "languageVersion": "2.1"
+      "languageVersion": "2.12"
     },
     {
       "name": "http_parser",
@@ -111,9 +117,9 @@
     },
     {
       "name": "io",
-      "rootUri": "file:///C:/Users/Ahmet%20Cavus/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/io-0.3.5",
+      "rootUri": "file:///C:/Users/Ahmet%20Cavus/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/io-1.0.3",
       "packageUri": "lib/",
-      "languageVersion": "2.1"
+      "languageVersion": "2.12"
     },
     {
       "name": "js",
@@ -129,7 +135,7 @@
     },
     {
       "name": "matcher",
-      "rootUri": "file:///C:/Users/Ahmet%20Cavus/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/matcher-0.12.10",
+      "rootUri": "file:///C:/Users/Ahmet%20Cavus/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/matcher-0.12.11",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -147,15 +153,15 @@
     },
     {
       "name": "node_preamble",
-      "rootUri": "file:///C:/Users/Ahmet%20Cavus/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/node_preamble-1.4.13",
+      "rootUri": "file:///C:/Users/Ahmet%20Cavus/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/node_preamble-2.0.1",
       "packageUri": "lib/",
-      "languageVersion": "1.24"
+      "languageVersion": "2.12"
     },
     {
       "name": "package_config",
-      "rootUri": "file:///C:/Users/Ahmet%20Cavus/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/package_config-1.9.3",
+      "rootUri": "file:///C:/Users/Ahmet%20Cavus/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/package_config-2.0.2",
       "packageUri": "lib/",
-      "languageVersion": "2.7"
+      "languageVersion": "2.12"
     },
     {
       "name": "path",
@@ -201,9 +207,9 @@
     },
     {
       "name": "shelf_web_socket",
-      "rootUri": "file:///C:/Users/Ahmet%20Cavus/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/shelf_web_socket-0.2.4+1",
+      "rootUri": "file:///C:/Users/Ahmet%20Cavus/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/shelf_web_socket-1.0.1",
       "packageUri": "lib/",
-      "languageVersion": "2.1"
+      "languageVersion": "2.12"
     },
     {
       "name": "source_map_stack_trace",
@@ -249,19 +255,19 @@
     },
     {
       "name": "test",
-      "rootUri": "file:///C:/Users/Ahmet%20Cavus/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/test-1.16.5",
+      "rootUri": "file:///C:/Users/Ahmet%20Cavus/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/test-1.17.12",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "test_api",
-      "rootUri": "file:///C:/Users/Ahmet%20Cavus/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/test_api-0.2.19",
+      "rootUri": "file:///C:/Users/Ahmet%20Cavus/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/test_api-0.4.3",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "test_core",
-      "rootUri": "file:///C:/Users/Ahmet%20Cavus/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/test_core-0.3.15",
+      "rootUri": "file:///C:/Users/Ahmet%20Cavus/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/test_core-0.4.2",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -273,7 +279,7 @@
     },
     {
       "name": "vm_service",
-      "rootUri": "file:///C:/Users/Ahmet%20Cavus/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/vm_service-6.2.0",
+      "rootUri": "file:///C:/Users/Ahmet%20Cavus/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/vm_service-7.3.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -285,9 +291,9 @@
     },
     {
       "name": "web_socket_channel",
-      "rootUri": "file:///C:/Users/Ahmet%20Cavus/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/web_socket_channel-1.2.0",
+      "rootUri": "file:///C:/Users/Ahmet%20Cavus/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/web_socket_channel-2.1.0",
       "packageUri": "lib/",
-      "languageVersion": "2.10"
+      "languageVersion": "2.12"
     },
     {
       "name": "webkit_inspection_protocol",
@@ -308,7 +314,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2021-09-24T22:11:22.136855Z",
+  "generated": "2021-09-28T06:20:05.758545Z",
   "generator": "pub",
   "generatorVersion": "2.14.2"
 }

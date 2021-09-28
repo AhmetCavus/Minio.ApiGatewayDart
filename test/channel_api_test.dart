@@ -20,7 +20,7 @@ void main() {
     //
     // Creates a new channel for sending broadcasts within the namespace
     //
-    //Future<AuthResponse> channelChannelIdPost(int channelId, { AuthBody authBody }) async
+    //Future<CreateChannelResponse> channelChannelIdPost(String channelId) async
     test('test channelChannelIdPost', () async {
       // TODO
     });
