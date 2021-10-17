@@ -65,7 +65,7 @@ void main() {
     //
     // Gets a collection by name with resolving the relations
     //
-    //Future<List<Object>> collectionSchemaRelationsGet(String schema, List<String> relations, { bool isJson, String createdAt }) async
+    //Future<List<Object>> collectionSchemaRelationsGet(String schema, String relations, { bool isJson, String createdAt }) async
     test('test collectionSchemaRelationsGet', () async {
       // TODO
     });

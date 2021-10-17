@@ -303,7 +303,7 @@ import 'package:openapi/api.dart';
 
 final api_instance = CollectionApi();
 final schema = schema_example; // String | The schema of the collection
-final relations = []; // List<String> | The depending models of the schema
+final relations = relations_example; // String | Provide the depending schemas in order to get a resolved object. The relations value should be filled like \"schema1 schema2 schemaN\"
 final isJson = true; // bool | Indicates whether to response with the collection schema
 final createdAt = createdAt_example; // String | Specifies the starting date which filters the responses
 
@@ -320,7 +320,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **schema** | **String**| The schema of the collection | 
- **relations** | [**List<String>**](String.md)| The depending models of the schema | [default to const []]
+ **relations** | **String**| Provide the depending schemas in order to get a resolved object. The relations value should be filled like \"schema1 schema2 schemaN\" | 
  **isJson** | **bool**| Indicates whether to response with the collection schema | [optional] 
  **createdAt** | **String**| Specifies the starting date which filters the responses | [optional] 
 

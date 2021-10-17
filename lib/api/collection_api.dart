@@ -443,15 +443,15 @@ class CollectionApi {
   /// * [String] schema (required):
   ///   The schema of the collection
   ///
-  /// * [List<String>] relations (required):
-  ///   The depending models of the schema
+  /// * [String] relations (required):
+  ///   Provide the depending schemas in order to get a resolved object. The relations value should be filled like \"schema1 schema2 schemaN\"
   ///
   /// * [bool] isJson:
   ///   Indicates whether to response with the collection schema
   ///
   /// * [String] createdAt:
   ///   Specifies the starting date which filters the responses
-  Future<Response> collectionSchemaRelationsGetWithHttpInfo(String schema, List<String> relations, { bool isJson, String createdAt }) async {
+  Future<Response> collectionSchemaRelationsGetWithHttpInfo(String schema, String relations, { bool isJson, String createdAt }) async {
     // Verify required params are set.
     if (schema == null) {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: schema');
@@ -503,15 +503,15 @@ class CollectionApi {
   /// * [String] schema (required):
   ///   The schema of the collection
   ///
-  /// * [List<String>] relations (required):
-  ///   The depending models of the schema
+  /// * [String] relations (required):
+  ///   Provide the depending schemas in order to get a resolved object. The relations value should be filled like \"schema1 schema2 schemaN\"
   ///
   /// * [bool] isJson:
   ///   Indicates whether to response with the collection schema
   ///
   /// * [String] createdAt:
   ///   Specifies the starting date which filters the responses
-  Future<List<Object>> collectionSchemaRelationsGet(String schema, List<String> relations, { bool isJson, String createdAt }) async {
+  Future<List<Object>> collectionSchemaRelationsGet(String schema, String relations, { bool isJson, String createdAt }) async {
     final response = await collectionSchemaRelationsGetWithHttpInfo(schema, relations,  isJson: isJson, createdAt: createdAt );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
