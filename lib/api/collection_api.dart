@@ -256,6 +256,91 @@ class CollectionApi {
     return Future<List<Object>>.value(null);
   }
 
+  /// Gets a collection by name with resolving the relations
+  ///
+  /// Provides an auto populated collection. The references are resolved into corresponding models. The recursive lookup takes place for up to 5 nested references.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] schema (required):
+  ///   The schema of the collection
+  ///
+  /// * [bool] isJson:
+  ///   Indicates whether to response with the collection schema
+  ///
+  /// * [String] createdAt:
+  ///   Specifies the starting date which filters the responses
+  Future<Response> collectionSchemaPopulatedGetWithHttpInfo(String schema, { bool isJson, String createdAt }) async {
+    // Verify required params are set.
+    if (schema == null) {
+     throw ApiException(HttpStatus.badRequest, 'Missing required param: schema');
+    }
+
+    final path = r'/collection/{schema}/populated'
+      .replaceAll('{' + 'schema' + '}', schema.toString());
+
+    Object postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    if (isJson != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat('', 'isJson', isJson));
+    }
+    if (createdAt != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat('', 'createdAt', createdAt));
+    }
+
+    final contentTypes = <String>[];
+    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final authNames = <String>['bearerAuth'];
+
+
+    return await apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      nullableContentType,
+      authNames,
+    );
+  }
+
+  /// Gets a collection by name with resolving the relations
+  ///
+  /// Provides an auto populated collection. The references are resolved into corresponding models. The recursive lookup takes place for up to 5 nested references.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] schema (required):
+  ///   The schema of the collection
+  ///
+  /// * [bool] isJson:
+  ///   Indicates whether to response with the collection schema
+  ///
+  /// * [String] createdAt:
+  ///   Specifies the starting date which filters the responses
+  Future<List<Object>> collectionSchemaPopulatedGet(String schema, { bool isJson, String createdAt }) async {
+    final response = await collectionSchemaPopulatedGetWithHttpInfo(schema,  isJson: isJson, createdAt: createdAt );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<Object>') as List)
+        .cast<Object>()
+        .toList(growable: false);
+    }
+    return Future<List<Object>>.value(null);
+  }
+
   /// Adds a new item to the collection
   ///
   /// Adds a new item to the collection
@@ -418,101 +503,6 @@ class CollectionApi {
   /// * [List<Object>] requestBody:
   Future<List<Object>> collectionSchemaPut(String schema, { bool isJson, String createdAt, List<Object> requestBody }) async {
     final response = await collectionSchemaPutWithHttpInfo(schema,  isJson: isJson, createdAt: createdAt, requestBody: requestBody );
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<Object>') as List)
-        .cast<Object>()
-        .toList(growable: false);
-    }
-    return Future<List<Object>>.value(null);
-  }
-
-  /// Gets a collection by name with resolving the relations
-  ///
-  /// Gets a collection by name with resolving the relations
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [String] schema (required):
-  ///   The schema of the collection
-  ///
-  /// * [String] relations (required):
-  ///   Provide the depending schemas in order to get a resolved object. The relations value should be filled like \"schema1 schema2 schemaN\"
-  ///
-  /// * [bool] isJson:
-  ///   Indicates whether to response with the collection schema
-  ///
-  /// * [String] createdAt:
-  ///   Specifies the starting date which filters the responses
-  Future<Response> collectionSchemaRelationsGetWithHttpInfo(String schema, String relations, { bool isJson, String createdAt }) async {
-    // Verify required params are set.
-    if (schema == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: schema');
-    }
-    if (relations == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: relations');
-    }
-
-    final path = r'/collection/{schema}/{relations}'
-      .replaceAll('{' + 'schema' + '}', schema.toString())
-      .replaceAll('{' + 'relations' + '}', relations.toString());
-
-    Object postBody;
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-    if (isJson != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'isJson', isJson));
-    }
-    if (createdAt != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'createdAt', createdAt));
-    }
-
-    final contentTypes = <String>[];
-    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
-    final authNames = <String>['bearerAuth'];
-
-
-    return await apiClient.invokeAPI(
-      path,
-      'GET',
-      queryParams,
-      postBody,
-      headerParams,
-      formParams,
-      nullableContentType,
-      authNames,
-    );
-  }
-
-  /// Gets a collection by name with resolving the relations
-  ///
-  /// Gets a collection by name with resolving the relations
-  ///
-  /// Parameters:
-  ///
-  /// * [String] schema (required):
-  ///   The schema of the collection
-  ///
-  /// * [String] relations (required):
-  ///   Provide the depending schemas in order to get a resolved object. The relations value should be filled like \"schema1 schema2 schemaN\"
-  ///
-  /// * [bool] isJson:
-  ///   Indicates whether to response with the collection schema
-  ///
-  /// * [String] createdAt:
-  ///   Specifies the starting date which filters the responses
-  Future<List<Object>> collectionSchemaRelationsGet(String schema, String relations, { bool isJson, String createdAt }) async {
-    final response = await collectionSchemaRelationsGetWithHttpInfo(schema, relations,  isJson: isJson, createdAt: createdAt );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

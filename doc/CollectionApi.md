@@ -12,9 +12,9 @@ Method | HTTP request | Description
 [**collectionSchemaGet**](CollectionApi.md#collectionschemaget) | **GET** /collection/{schema} | Gets a collection by name
 [**collectionSchemaIdDelete**](CollectionApi.md#collectionschemaiddelete) | **DELETE** /collection/{schema}/{id} | Deletes the item in the collection that matches the id
 [**collectionSchemaIdPut**](CollectionApi.md#collectionschemaidput) | **PUT** /collection/{schema}/{id} | Replaces the item in the collection with the one in the request body
+[**collectionSchemaPopulatedGet**](CollectionApi.md#collectionschemapopulatedget) | **GET** /collection/{schema}/populated | Gets a collection by name with resolving the relations
 [**collectionSchemaPost**](CollectionApi.md#collectionschemapost) | **POST** /collection/{schema} | Adds a new item to the collection
 [**collectionSchemaPut**](CollectionApi.md#collectionschemaput) | **PUT** /collection/{schema} | Replaces the whole collection with the given one
-[**collectionSchemaRelationsGet**](CollectionApi.md#collectionschemarelationsget) | **GET** /collection/{schema}/{relations} | Gets a collection by name with resolving the relations
 
 
 # **collectionSchemaGet**
@@ -174,6 +174,59 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **collectionSchemaPopulatedGet**
+> List<Object> collectionSchemaPopulatedGet(schema, isJson, createdAt)
+
+Gets a collection by name with resolving the relations
+
+Provides an auto populated collection. The references are resolved into corresponding models. The recursive lookup takes place for up to 5 nested references.
+
+### Example 
+```dart
+import 'package:openapi/api.dart';
+// TODO Configure HTTP Bearer authorization: bearerAuth
+// Case 1. Use String Token
+//defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
+
+final api_instance = CollectionApi();
+final schema = schema_example; // String | The schema of the collection
+final isJson = true; // bool | Indicates whether to response with the collection schema
+final createdAt = createdAt_example; // String | Specifies the starting date which filters the responses
+
+try { 
+    final result = api_instance.collectionSchemaPopulatedGet(schema, isJson, createdAt);
+    print(result);
+} catch (e) {
+    print('Exception when calling CollectionApi->collectionSchemaPopulatedGet: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **schema** | **String**| The schema of the collection | 
+ **isJson** | **bool**| Indicates whether to response with the collection schema | [optional] 
+ **createdAt** | **String**| Specifies the starting date which filters the responses | [optional] 
+
+### Return type
+
+[**List<Object>**](Object.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **collectionSchemaPost**
 > Object collectionSchemaPost(schema, isJson, createdAt, body)
 
@@ -280,61 +333,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **collectionSchemaRelationsGet**
-> List<Object> collectionSchemaRelationsGet(schema, relations, isJson, createdAt)
-
-Gets a collection by name with resolving the relations
-
-Gets a collection by name with resolving the relations
-
-### Example 
-```dart
-import 'package:openapi/api.dart';
-// TODO Configure HTTP Bearer authorization: bearerAuth
-// Case 1. Use String Token
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultApiClient.getAuthentication<HttpBearerAuth>('bearerAuth').setAccessToken(yourTokenGeneratorFunction);
-
-final api_instance = CollectionApi();
-final schema = schema_example; // String | The schema of the collection
-final relations = relations_example; // String | Provide the depending schemas in order to get a resolved object. The relations value should be filled like \"schema1 schema2 schemaN\"
-final isJson = true; // bool | Indicates whether to response with the collection schema
-final createdAt = createdAt_example; // String | Specifies the starting date which filters the responses
-
-try { 
-    final result = api_instance.collectionSchemaRelationsGet(schema, relations, isJson, createdAt);
-    print(result);
-} catch (e) {
-    print('Exception when calling CollectionApi->collectionSchemaRelationsGet: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **schema** | **String**| The schema of the collection | 
- **relations** | **String**| Provide the depending schemas in order to get a resolved object. The relations value should be filled like \"schema1 schema2 schemaN\" | 
- **isJson** | **bool**| Indicates whether to response with the collection schema | [optional] 
- **createdAt** | **String**| Specifies the starting date which filters the responses | [optional] 
-
-### Return type
-
-[**List<Object>**](Object.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -147,7 +147,7 @@
     },
     {
       "name": "mime",
-      "rootUri": "file:///C:/Users/cavus/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/mime-1.0.0",
+      "rootUri": "file:///C:/Users/cavus/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/mime-1.0.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -314,7 +314,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2021-10-17T21:32:19.696413Z",
+  "generated": "2021-10-20T22:32:11.883580Z",
   "generator": "pub",
   "generatorVersion": "2.14.3"
 }

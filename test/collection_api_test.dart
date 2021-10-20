@@ -43,6 +43,15 @@ void main() {
       // TODO
     });
 
+    // Gets a collection by name with resolving the relations
+    //
+    // Provides an auto populated collection. The references are resolved into corresponding models. The recursive lookup takes place for up to 5 nested references.
+    //
+    //Future<List<Object>> collectionSchemaPopulatedGet(String schema, { bool isJson, String createdAt }) async
+    test('test collectionSchemaPopulatedGet', () async {
+      // TODO
+    });
+
     // Adds a new item to the collection
     //
     // Adds a new item to the collection
@@ -58,15 +67,6 @@ void main() {
     //
     //Future<List<Object>> collectionSchemaPut(String schema, { bool isJson, String createdAt, List<Object> requestBody }) async
     test('test collectionSchemaPut', () async {
-      // TODO
-    });
-
-    // Gets a collection by name with resolving the relations
-    //
-    // Gets a collection by name with resolving the relations
-    //
-    //Future<List<Object>> collectionSchemaRelationsGet(String schema, String relations, { bool isJson, String createdAt }) async
-    test('test collectionSchemaRelationsGet', () async {
       // TODO
     });
 
