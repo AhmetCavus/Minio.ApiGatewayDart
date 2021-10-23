@@ -20,7 +20,7 @@ void main() {
     //
     // Gets a collection by name
     //
-    //Future<List<Object>> collectionSchemaGet(String schema, { bool isJson, String createdAt }) async
+    //Future<List<Object>> collectionSchemaGet(String schema, { String createdAt }) async
     test('test collectionSchemaGet', () async {
       // TODO
     });
@@ -31,6 +31,24 @@ void main() {
     //
     //Future<List<Object>> collectionSchemaIdDelete(String schema, String id) async
     test('test collectionSchemaIdDelete', () async {
+      // TODO
+    });
+
+    // Gets the item in the collection depending on the given id
+    //
+    // Provides an auto populated collection item. The references are resolved into corresponding models. The recursive lookup takes place for up to 5 nested references.
+    //
+    //Future<List<Object>> collectionSchemaIdGet(String schema, String id) async
+    test('test collectionSchemaIdGet', () async {
+      // TODO
+    });
+
+    // Gets the populated item in the collection depending on the given id
+    //
+    // Provides an auto populated collection item. The references are resolved into corresponding models. The recursive lookup takes place for up to 5 nested references.
+    //
+    //Future<List<Object>> collectionSchemaIdPopulatedGet(String id, String schema) async
+    test('test collectionSchemaIdPopulatedGet', () async {
       // TODO
     });
 
@@ -47,7 +65,7 @@ void main() {
     //
     // Provides an auto populated collection. The references are resolved into corresponding models. The recursive lookup takes place for up to 5 nested references.
     //
-    //Future<List<Object>> collectionSchemaPopulatedGet(String schema, { bool isJson, String createdAt }) async
+    //Future<List<Object>> collectionSchemaPopulatedGet(String schema, { String createdAt }) async
     test('test collectionSchemaPopulatedGet', () async {
       // TODO
     });
@@ -56,7 +74,7 @@ void main() {
     //
     // Adds a new item to the collection
     //
-    //Future<Object> collectionSchemaPost(String schema, { bool isJson, String createdAt, Object body }) async
+    //Future<Object> collectionSchemaPost(String schema, { String createdAt, Object body }) async
     test('test collectionSchemaPost', () async {
       // TODO
     });
@@ -65,7 +83,7 @@ void main() {
     //
     // Replaces the whole collection with the given one
     //
-    //Future<List<Object>> collectionSchemaPut(String schema, { bool isJson, String createdAt, List<Object> requestBody }) async
+    //Future<List<Object>> collectionSchemaPut(String schema, { String createdAt, List<Object> requestBody }) async
     test('test collectionSchemaPut', () async {
       // TODO
     });
